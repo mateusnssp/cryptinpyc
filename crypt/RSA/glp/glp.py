@@ -1,9 +1,6 @@
-import random
-
-
 def generate_prime_numbers(lim):
     """
-    Gera lista de números primos
+    Gera lista de números primos acima de 10**100
     """
 
     l = []
@@ -17,9 +14,3 @@ def generate_prime_numbers(lim):
     return l
 
 test = generate_prime_numbers(10**120)
-
-sorteio = random.choice(test)
-print(sorteio)
-
-def totiente():
-    pass
