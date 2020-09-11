@@ -1,5 +1,6 @@
 import random
 
+
 def generate_prime_numbers(lim):
     """
     Gera lista de números primos
@@ -22,5 +23,3 @@ print(sorteio)
 
 def totiente():
     pass
-
-
