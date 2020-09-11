@@ -2,32 +2,34 @@
 import random
 from math import gcd
 
-def generate_prime_numbers(lim):
+def generate_prime_numbers(lim = 100):
     """
     Gera lista de números primos
     """
-
     l = []
-    for num in range(10**100, lim):
-        for n in range(10**100, num):
-            if num % n == 0:
+    for num in range(2, lim):
+        for item in range(2, num):
+            if num % item == 0:
                 pass
         else:  # Se o módulo nunca for zero, é primo
             l.append(num)
-            print(num)
     return l
 
 
 
+p, q = random.choice(generate_prime_numbers()), random.choice(generate_prime_numbers())
+print(p, q)
+n = (p-1)*(q-1)
 
-def phi(n):
+
+
+def phi(expression_n):
     """
-    Totient
-    :return: phi(n)
+    Retorna totiente
     """
     amount = 0
-    for k in range(1, n + 1):
-        if gcd(n, k) == 1:
+    for k in range(1, expression_n + 1):
+        if gcd(expression_n, k) == 1:
             amount += 1
     return amount
 
@@ -37,4 +39,4 @@ def phi(n):
 
 if __name__ == '__main__':
 
-    print(phi(8))
+    print(phi(n))
