@@ -18,7 +18,7 @@ def choice_pq():
     # Definição da vairável que suportará a lista dos números primos:
     lp = []
     # Atribuir números primos para lp (transporte para o programa)
-    for i in range(6772):
+    for i in range(7402):
         i = file.readline()
         lp.append(int(i))
 
