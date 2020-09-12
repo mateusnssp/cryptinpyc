@@ -5,8 +5,6 @@ from math import gcd
 
 
 # Módulos próprios
-from crypt.calc import mod
-
 
 
 def generate_prime_numbers(lim = 100):
