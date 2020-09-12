@@ -2,4 +2,4 @@
 
 #Gerar números bases
 
-python3 glp.py > lp.key;
+python3 glp.py > lp.txt;
