@@ -1,14 +1,14 @@
-def precrypt(conteudo):
-
-
+def precrypt(conteudo, path_file):
     """
     Pré-criptografar conteudo.
     conteudo deve ser do tipo <class 'list'>
     """
 
-
     # Abrir banco de caracteres.
-    l = open('./caracteres')
+    l = open(path_file)
+
+
+
 
     # Passar banco de caracteres para variável do programa
     caracteres = [x for x in l.read()]
@@ -31,5 +31,5 @@ def precrypt(conteudo):
 
 
 if __name__ == '__main__':
-    print(precrypt(list('sdnfhsaeu')))
+    print(precrypt(list('sdnfhsaeu'), './caracteres'))
 
