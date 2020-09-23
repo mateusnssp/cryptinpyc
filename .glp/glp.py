@@ -4,7 +4,7 @@ def generate_prime_numbers(lim):
     """
 
     l = []
-    for num in range(10**100, lim):
+    for num in range(2, lim):
         for n in range(2, num):
             if num % n == 0:
                 break

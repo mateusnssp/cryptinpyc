@@ -1,13 +1,33 @@
+from precrypt.precrypt import *
+from crypt.RSA.codification import key
 
-# Own
-import precrypt.precrypt
-from crypt.RSA.codification import *
+loop = True
+while loop:
+    try:
+        chave = key()
+        loop = False
+        print(chave)
+    except:
+        loop = True
+
+key = key()
 
 
 
-while True:
-    conteudo_precrypt = precrypt.precrypt.precrypt(list(input('str: ')), '../../precrypt/caracteres')
+msg = str(input("Informe a mensagem: "))
+msg_pre_criptografada = precrypt(list(msg), '../../precrypt/caracteres')
 
-    print(codification(conteudo_precrypt))
-    print(f'Chave PÚBLICA: (n,e) = ({encryption_key[0]}, {e})')
-    print(f'CHAVE PRIVADA: (p, q, d) = ({encryption_key[1][0]}, {encryption_key[1][1]}, {"d"})')
+
+print(msg_pre_criptografada) #Imprimir
+
+
+
+tamanho = len(msg_pre_criptografada)
+lista_caracteres_criptografados = []
+i = 0
+for caractere_pre_criptografado in msg_pre_criptografada:
+    lista_caracteres_criptografados.append(caractere_pre_criptografado ** key[4])
+
+print(lista_caracteres_criptografados)
+
+print(len(lista_caracteres_criptografados))
