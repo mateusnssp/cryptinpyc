@@ -60,3 +60,9 @@ while repetir_pergunta_visualizar:
             pass
         else:
             print("\33[31mOPÇÃO DESCONHECIDA, RESPONDA NOVAMENTE.\33[m")
+
+path_save = input('\33[37mINFORME O CAMINHO DESTINO DA CRIPTOGRAFIA: \33[m')
+
+
+
+
