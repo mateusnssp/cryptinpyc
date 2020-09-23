@@ -1,6 +1,9 @@
 # Importações:
 import random
-import calc.mod_inverse
+from calc.mod_inverse import modinv
+from calc.mdc import mdc
+
+
 
 def key():
     #################################################################################################
@@ -48,21 +51,28 @@ def key():
     #Escolha um inteiro  "e"  , 1 < "e" < phi(n) ,  "e" e phi(n) sejam primos entre si.
     #################################################################################################
 
-    def generate_E(num):
-        def mdc(n1, n2):
-            rest = 1
-            while n2 != 0:
-                rest = n1 % n2
-                n1 = n2
-                n2 = rest
-            return n1
+    E_NO_OK = True
+    while E_NO_OK:
+        def generate_E(num):
+            def mdc(n1, n2):
+                rest = 1
+                while n2 != 0:
+                    rest = n1 % n2
+                    n1 = n2
+                    n2 = rest
+                return n1
 
-        while True:
-            E = random.randrange(2, num)
-            if mdc(num, E) == 1:
-                return E
+            while True:
+                E = random.randrange(2, num)
+                if mdc(num, E) == 1:
+                    return E
 
-    e = generate_E(random.choice(lp))
+        e = generate_E(random.choice(lp))
+        if mdc(phi, e) == 1:
+            E_NO_OK = False
+            print(e)
+        else:
+            E_NO_OK = True
 
 
     #################################################################################################
@@ -71,7 +81,7 @@ def key():
 
 
 
-    d = calc.mod_inverse.modinv(e, phi)
+    d = modinv(e, phi)
 
 
     print(f'p: {p}\nq: {q}\nn = p * q: {n}\nphi = (p - 1) * (q - 1): {phi}\ne: {e}\nd: {d}')

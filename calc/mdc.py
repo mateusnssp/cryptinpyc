@@ -4,4 +4,4 @@ def mdc(a, b):
     resto = a % b
     a = b
     b = resto
-    return mdc(a, b) 
+    return mdc(a, b)
