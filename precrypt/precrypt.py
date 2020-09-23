@@ -31,5 +31,5 @@ def precrypt(conteudo, path_file):
 
 
 if __name__ == '__main__':
-    print(precrypt(list('mmm'), './caracteres'))
+    print(precrypt(list('mmm'), 'caracteres'))
 

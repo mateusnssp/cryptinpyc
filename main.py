@@ -2,26 +2,34 @@
 from precrypt.precrypt import *
 from crypt.RSA.codification import key
 
+
+
+
+
+#.....................................RSA................................
 loop = True
 while loop:
     try:
         chave = key()
-        print(chave)
+
         loop = False
     except:
         loop = True
 
 key = key()
 
-
-
-msg = str(input("\33[32mINFORME A MENSAGEM...............:\33[m ")) ###RECEBER A MENSAGEM
-
-
 #PRE CRIPTOGRAFAR
-msg_pre_criptografada = precrypt(list(msg), '../../precrypt/caracteres')
+#../../precrypt/caracteres
 
-
+loop_bar_error = True
+while loop_bar_error:
+    try:
+        msg = str(input("\33[32mINFORME A MENSAGEM...............:\33[m ")) ###RECEBER A MENSAGEM
+        msg_pre_criptografada = precrypt(list(msg), './precrypt/caracteres')
+        loop_bar_error = False
+    except ValueError as error:
+        print(f'\33[31m{error} : BARRA INVERTIDA AINDA NÃO É SUPORTADA.\33[m')
+        loop_bar_error = True
 
 
 
@@ -38,8 +46,10 @@ for caractere_pre_criptografado in msg_pre_criptografada:
 repetir_pergunta_visualizar = True
 while repetir_pergunta_visualizar:
     visualizar = input('\33[37mDESEJA VIZUALIZAR O CONTEÚDO GERADO? (Y/N): \33[m')
-    print()
+
     if visualizar.upper() == 'Y':
+        print(f'\33[92mCHAVE PÚBLICA....................:\33[m {f"(n, e) = {chave[2], chave[4]}"}')
+        print(f'\33[92mCHAVE PRIVADA....................:\33[m {f"(p, q, d) = {chave[0], chave[1], chave[5]}"}')
         print(f'\33[92mMENSAGEM PRE-CRIPTOGRAFADA:......:\33[m {msg_pre_criptografada}')
         print(f'\33[92mMENSAGEM CRIPTOGRAFADA...........:\33[m {lista_caracteres_criptografados}')
         print(f'\33[92mTAMANHO:.........................:\33[m {len(lista_caracteres_criptografados)}')
@@ -50,5 +60,3 @@ while repetir_pergunta_visualizar:
             pass
         else:
             print("\33[31mOPÇÃO DESCONHECIDA, RESPONDA NOVAMENTE.\33[m")
-
-

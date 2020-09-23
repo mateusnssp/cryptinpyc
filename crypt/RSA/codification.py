@@ -11,7 +11,8 @@ def key():
     #################################################################################################
 
     # Abrir lista dos números primos:
-    file = open('../../.glp/lp.txt')
+    #../../.glp/lp.txt
+    file = open('./.glp/lp.txt')
 
     # Definição da vairável que suportará a lista dos números primos:
     lp = []
@@ -70,7 +71,7 @@ def key():
         e = generate_E(random.choice(lp))
         if mdc(phi, e) == 1:
             E_NO_OK = False
-            print(e)
+
         else:
             E_NO_OK = True
 
@@ -84,7 +85,6 @@ def key():
     d = modinv(e, phi)
 
 
-    print(f'p: {p}\nq: {q}\nn = p * q: {n}\nphi = (p - 1) * (q - 1): {phi}\ne: {e}\nd: {d}')
 
 
 
