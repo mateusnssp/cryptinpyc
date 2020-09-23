@@ -80,3 +80,14 @@ def key():
 
     return [p, q, n, phi, e, d]
 
+
+if __name__ == '__main__':
+
+    loop = True
+    while loop:
+        try:
+            print(key())
+            loop = False
+        except:
+            print('err!')
+            loop = True

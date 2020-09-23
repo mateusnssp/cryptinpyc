@@ -5,8 +5,8 @@ loop = True
 while loop:
     try:
         chave = key()
-        loop = False
         print(chave)
+        loop = False
     except:
         loop = True
 
@@ -27,6 +27,9 @@ lista_caracteres_criptografados = []
 i = 0
 for caractere_pre_criptografado in msg_pre_criptografada:
     lista_caracteres_criptografados.append(caractere_pre_criptografado ** key[4])
+
+
+
 
 print(lista_caracteres_criptografados)
 
