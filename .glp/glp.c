@@ -1,39 +1,68 @@
-#include<stdio.h>    //Biblioteca para entrada e saída de dados
-#include<stdlib.h>  //Biblioteca para utilizar funções próprias do Sistema Operacional
+#include<stdio.h>
+#include<stdlib.h>
+
 
 
 int main(){
 
 
-      int a=1000000000,b,c,n,d;           //Declarando as variáveis
-
-
-      printf("Quantos numeros primos pretende exibir? ");
-      scanf("%i",&n);
+    int a=0,b,c,n=100,d;           //Declarando as variáveis
 
 
 
-      d=n*(-1);
+    //ABRIR ARQUIVO
+    FILE *arq;
+    arq = fopen("lp.txt", "w");
+
+
+
+
+    d=n*(-1);
 
       printf("Os primeiros %i numeros primos sao:\n",n);
 
 
-      do         //Inicio do bloco de repetição
-      {  a++;        
-         c=0;
-         for(b=1;b<a;b++)
-             if(a%b==0)
-             c++;
-         if(c==1){
-             printf("%i\n",a);      //Imprimindo os números primos
-             d++;
-                 }
-      }while(d); //Repete o bloco enquanto d for diferente de zero 0.
-      
-      
-      printf("\n\n");     //Dá duas quebras de linha para ficar mais bonito
+    do        
+    {  a++;    
+        c=0;
+
+        for(b=1;b<a;b++)
+            if(a%b==0)
+            c++;
 
 
+        //SE FOR PRIMO
+        if(c==1){
+
+
+
+
+
+            printf("%i\n",a);    
+    
+
+
+
+            fprintf(arq, "%d\n", a);
+
+
+
+
+            d++;
+        }
+    }while(d); 
+      
+
+
+
+      
+      printf("\n\n"); 
+
+
+
+
+    //FECHAR ARQUIVO
+    fclose(arq); 
 
     return 0;
 }           
