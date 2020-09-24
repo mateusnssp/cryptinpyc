@@ -95,11 +95,24 @@ arquivo_de_saida.close()
 
 #CHAVES
 
-name_file_key = path_save + '/' + 'KEY'
+## CHAVE PÚBLICA
+name_file_key_pb = path_save + '/' + 'pb'
 
-arquivo_key = open(name_file_key, 'w+')
+arquivo_key_pb = open(name_file_key_pb, 'w+')
 
-arquivo_key.write('test')
 
-arquivo_key.close()
+arquivo_key_pb.write(f'PB-{chave[2]}>{chave[4]}')
+
+arquivo_key_pb.close()
+
+
+## CHAVE PRIVADA
+name_file_key_pv = path_save + '/' + 'pv'
+
+arquivo_key_pv = open(name_file_key_pv, 'w+')
+
+
+arquivo_key_pv.write(f'PB-{chave[2]}>{chave[4]}&PV-{chave[0]}>{chave[1]}>{chave[5]}')
+
+arquivo_key_pv.close()
 
