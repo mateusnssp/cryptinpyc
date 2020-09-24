@@ -1,4 +1,9 @@
+#Builtins
+from datetime import datetime
 
+import os
+
+#Own
 from precrypt.precrypt import *
 from crypt.RSA.codification import key
 
@@ -6,7 +11,7 @@ from crypt.RSA.codification import key
 
 
 
-#.....................................RSA................................
+#.....................................RSA......................................
 loop = True
 while loop:
     try:
@@ -24,7 +29,7 @@ key = key()
 loop_bar_error = True
 while loop_bar_error:
     try:
-        msg = str(input("\33[32mINFORME A MENSAGEM...............:\33[m ")) ###RECEBER A MENSAGEM
+        msg = str(input("\33[92mINFORME A MENSAGEM...............:\33[m ")) ###RECEBER A MENSAGEM
         msg_pre_criptografada = precrypt(list(msg), './precrypt/caracteres')
         loop_bar_error = False
     except ValueError as error:
@@ -61,8 +66,40 @@ while repetir_pergunta_visualizar:
         else:
             print("\33[31mOPÇÃO DESCONHECIDA, RESPONDA NOVAMENTE.\33[m")
 
-path_save = input('\33[37mINFORME O CAMINHO DESTINO DA CRIPTOGRAFIA: \33[m')
+path_save = input('\33[37mINFORME O NOME DO DIRETÓRIO: \33[m')
+
+### CRIAR ARQUIVO SAVE
 
 
+#CRIAÇÃO DO DIRETÓRIO
+os.mkdir(path_save)
 
+### NOMEAÇÃO DOS ARQUIVOS
+name_file = datetime.now()
+name_file = str(name_file)
+name_file = hex(int(name_file.replace('-', '0').replace(':', '4').replace(' ', '5').replace('.', '7')))
+
+################################
+##CRIAÇÃO DOS ARQUIVOS
+################################
+
+#MENSAGEM CRIPTOGRAFADA
+name_file_saida = path_save + '/' + str(name_file) #Caminho do arquivo ao diretório, já com o nome do mesmo.
+
+arquivo_de_saida = open(name_file_saida, 'w+')
+
+arquivo_de_saida.write(str(lista_caracteres_criptografados).replace('[', '&').replace(']','!').replace(',','x').replace(' ',''))
+
+arquivo_de_saida.close()
+
+
+#CHAVES
+
+name_file_key = path_save + '/' + 'KEY'
+
+arquivo_key = open(name_file_key, 'w+')
+
+arquivo_key.write('test')
+
+arquivo_key.close()
 
