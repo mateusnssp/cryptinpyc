@@ -103,9 +103,9 @@ arquivo_de_saida.write(str(lista_caracteres_criptografados).replace('[', '&').re
 
 arquivo_de_saida.close()
 
-################################
-###CHAVES
-################################
+
+#############CHAVES#############
+
 
 ## CHAVE PÚBLICA
 name_file_key_pb = path_save + '/' + 'pb'
