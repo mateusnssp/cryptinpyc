@@ -1,3 +1,4 @@
+#IMPORTAÇÕES
 #Builtins
 from datetime import datetime
 
@@ -66,13 +67,23 @@ while repetir_pergunta_visualizar:
         else:
             print("\33[31mOPÇÃO DESCONHECIDA, RESPONDA NOVAMENTE.\33[m")
 
-path_save = input('\33[37mINFORME O NOME DO DIRETÓRIO: \33[m')
 
 ### CRIAR ARQUIVO SAVE
 
 
 #CRIAÇÃO DO DIRETÓRIO
-os.mkdir(path_save)
+
+path_save_existe = False
+while not path_save_existe:
+    try:
+        path_save = input('\33[37mINFORME O NOME DO DIRETÓRIO: \33[m')
+        os.mkdir(path_save)
+        path_save_existe = True
+    except FileExistsError:
+        print('\33[31mDIRETÓRIO JÁ EXISTENTE, PASSE OUTRO NOME.\33[m')
+        path_save_existe = False
+
+
 
 ### NOMEAÇÃO DOS ARQUIVOS
 name_file = datetime.now()
@@ -80,7 +91,7 @@ name_file = str(name_file)
 name_file = hex(int(name_file.replace('-', '0').replace(':', '4').replace(' ', '5').replace('.', '7')))
 
 ################################
-##CRIAÇÃO DOS ARQUIVOS
+###CRIAÇÃO DOS ARQUIVOS
 ################################
 
 #MENSAGEM CRIPTOGRAFADA
@@ -92,8 +103,9 @@ arquivo_de_saida.write(str(lista_caracteres_criptografados).replace('[', '&').re
 
 arquivo_de_saida.close()
 
-
-#CHAVES
+################################
+###CHAVES
+################################
 
 ## CHAVE PÚBLICA
 name_file_key_pb = path_save + '/' + 'pb'
