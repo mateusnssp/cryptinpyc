@@ -6,13 +6,10 @@
 int main(){
 
 
-    int a=0,b,c,n=100,d;           //Declarando as variáveis
+    int a=10000,b,c,n=50000,d;           //Declarando as variáveis
 
 
 
-    //ABRIR ARQUIVO
-    FILE *arq;
-    arq = fopen("lp.txt", "w");
 
 
 
@@ -21,6 +18,9 @@ int main(){
 
       printf("Os primeiros %i numeros primos sao:\n",n);
 
+            //ABRIR ARQUIVO
+            FILE *arq;
+            arq = fopen("lp.txt", "w");
 
     do        
     {  a++;    
@@ -43,6 +43,8 @@ int main(){
 
 
 
+
+
             fprintf(arq, "%d\n", a);
 
 
@@ -54,6 +56,8 @@ int main(){
       
 
 
+            //FECHAR ARQUIVO
+            fclose(arq); 
 
       
       printf("\n\n"); 
@@ -61,8 +65,6 @@ int main(){
 
 
 
-    //FECHAR ARQUIVO
-    fclose(arq); 
 
     return 0;
 }           

@@ -22,8 +22,8 @@ def key():
     # Definição das variáveis
     p, q, p_diferente_q = None, None, False
 
-    tamanho_da_linha = 11  # todas as linhas do arquivo lp.txt tem 11 bytes (contando com os \n)
-    quantidade_de_linhas = 6
+    tamanho_da_linha = 7  # todas as linhas do arquivo lp.txt tem 7 bytes (contando com os \n)
+    quantidade_de_linhas = 41637
 
     # Garantir que p seja diferente de q:
     while not p_diferente_q:
