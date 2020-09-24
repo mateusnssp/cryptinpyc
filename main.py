@@ -30,7 +30,7 @@ key = key()
 loop_bar_error = True
 while loop_bar_error:
     try:
-        msg = str(input("\33[92mINFORME A MENSAGEM...............:\33[m ")) ###RECEBER A MENSAGEM
+        msg = str(input("\33[92mINFORME A MENSAGEM........................:\33[m ")) ###RECEBER A MENSAGEM
         msg_pre_criptografada = precrypt(list(msg), './precrypt/caracteres')
         loop_bar_error = False
     except ValueError as error:
@@ -54,11 +54,11 @@ while repetir_pergunta_visualizar:
     visualizar = input('\33[37mDESEJA VIZUALIZAR O CONTEÚDO GERADO? (Y/N): \33[m')
 
     if visualizar.upper() == 'Y':
-        print(f'\33[92mCHAVE PÚBLICA....................:\33[m {f"(n, e) = {chave[2], chave[4]}"}')
-        print(f'\33[92mCHAVE PRIVADA....................:\33[m {f"(p, q, d) = {chave[0], chave[1], chave[5]}"}')
-        print(f'\33[92mMENSAGEM PRE-CRIPTOGRAFADA:......:\33[m {msg_pre_criptografada}')
-        print(f'\33[92mMENSAGEM CRIPTOGRAFADA...........:\33[m {lista_caracteres_criptografados}')
-        print(f'\33[92mTAMANHO:.........................:\33[m {len(lista_caracteres_criptografados)}')
+        print(f'\33[92mCHAVE PÚBLICA.............................:\33[m {f"(n, e) = {chave[2], chave[4]}"}')
+        print(f'\33[92mCHAVE PRIVADA.............................:\33[m {f"(p, q, d) = {chave[0], chave[1], chave[5]}"}')
+        print(f'\33[92mMENSAGEM PRE-CRIPTOGRAFADA:...............:\33[m {msg_pre_criptografada}')
+        print(f'\33[92mMENSAGEM CRIPTOGRAFADA....................:\33[m {lista_caracteres_criptografados}')
+        print(f'\33[92mTAMANHO:..................................:\33[m {len(lista_caracteres_criptografados)}')
         repetir_pergunta_visualizar = False
     else:
         if visualizar.upper() == 'N':
@@ -76,7 +76,7 @@ while repetir_pergunta_visualizar:
 path_save_existe = False
 while not path_save_existe:
     try:
-        path_save = input('\33[37mINFORME O NOME DO DIRETÓRIO: \33[m')
+        path_save = input('\33[37mINFORME O NOME DO DIRETÓRIO...............: \33[m')
         os.mkdir(path_save)
         path_save_existe = True
     except FileExistsError:
