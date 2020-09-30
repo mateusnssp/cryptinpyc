@@ -23,7 +23,7 @@ def e():
     e_running = True
     while e_running:
 
-        command_e = input('\33[92mInforme o caminho do arquivo ou pressione "i" para informar manualmente >>> \33[m')
+        command_e = input('\33[92m\n:::Informe o caminho ou pressione "i" para criação instantânea:::\n[] >>> \33[m')
         if command_e.upper() == "I":
             msg = input('\33[92mDados: \33[m')
             e_running = False

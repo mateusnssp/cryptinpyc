@@ -1,127 +1,68 @@
-#IMPORTAÇÕES
-#Builtins
-from datetime import datetime
-import os
+# IMPORTAÇÕES
 
-#Own
+# Own
 from precrypt.precrypt import *
 from crypt.RSA.codification import key
 
+"""
+___REGRAS GERASI DE LÓGICA DE CRIPTOGRAFIA___
 
+    1 --> Classe é definida como o conjunto de dados trabalhados, incluindo dados pre-criptografados, criptografados e chaves.
 
-#.....................................RSA......................................
-loop = True
-while loop:
-    try:
-        chave = key()
-
-        loop = False
-    except:
-        loop = True
-
-key = key()
-
-#PRE CRIPTOGRAFAR
-#../../precrypt/caracteres
-
-loop_bar_error = True
-while loop_bar_error:
-    try:
-        msg = str(input("\33[92mINFORME A MENSAGEM........................:\33[m ")) ###RECEBER A MENSAGEM
-        msg_pre_criptografada = precrypt(list(msg), './precrypt/caracteres')
-        loop_bar_error = False
-    except ValueError as error:
-        print(f'\33[31m{error} : BARRA INVERTIDA AINDA NÃO É SUPORTADA.\33[m')
-        loop_bar_error = True
+    2 --> Toda classe, deve conter um dado legível, com:
+        -- Um par de chaves completo, contendo:
+                -- Uma chave correspondente pública;
+                -- Uma chave correspondente privada.
+        -- Um dado correspondente pre-criptografado;
+        -- Um dado correspondente criptografado.
 
 
 
-lista_caracteres_criptografados = []
-i = 0
-for caractere_pre_criptografado in msg_pre_criptografada:
-
-    lista_caracteres_criptografados.append(pow(caractere_pre_criptografado, key[4], mod=key[5]))
+"""
 
 
+class RSA:
+
+    def __init__(self, dado_legivel):
+        """
+        Função construtora define as variáveis em ordem algorítmica para se adequar com a regra 1.
+        """
+
+        self.caracteres_para_chaves_de_preCriptografia = './precrypt/caracteres'  # Caminho para caracteres,
+
+        self.key = key()  # Definição das chaves (p, q, n, phi, e, d)
+
+        self.dado_legivel = dado_legivel
+
+        self.dado_preCriptografado = self.pre_criptografar(dado_legivel)
+        self.dado_criptografado = self.criptografar(self.dado_preCriptografado)
+
+        # self.dict_key = {'p': self.key[0], 'q': self.key[1], 'n': self.key[2], 'phi': self.key[3], 'e': self.key[4], 'd': self.key[5]}
+
+    def pre_criptografar(self, dado):
+        return precrypt(list(dado), self.caracteres_para_chaves_de_preCriptografia)
+
+    def criptografar(self, dado):
+        dado_criptografado = []
+        for caractere in dado:
+            caractere_criptografado = pow(caractere, self.key[4], mod=self.key[5])  # pow(caractere, e, mod=d)
+            dado_criptografado.append(caractere_criptografado)
+
+        return dado_criptografado
+
+    def print_dados(self):
+        print(f'\33[92mCHAVE COMPLETA............................:\33[m {f"(p, q, n, phi, e, d) = {self.key}"}')
+
+        print(f'\33[92mCHAVE PÚBLICA.............................:\33[m {f"(n, e) = {self.key[2], self.key[4]}"}')
+        print(
+            f'\33[92mCHAVE PRIVADA.............................:\33[m {f"(p, q, d) = {self.key[0], self.key[1], self.key[5]}"}')
+
+        print(f'\33[92mDADO PRE-CRIPTOGRAFADO:...................:\33[m {self.dado_preCriptografado}')
+        print(f'\33[92mDADO CRIPTOGRAFADO........................:\33[m {self.dado_criptografado}')
+        print(f'\33[92mTAMANHO:..................................:\33[m {len(self.dado_legivel)}')
 
 
-
-repetir_pergunta_visualizar = True
-while repetir_pergunta_visualizar:
-    visualizar = input('\33[37mDESEJA VIZUALIZAR O CONTEÚDO GERADO? (Y/N): \33[m')
-
-    if visualizar.upper() == 'Y':
-        print(f'\33[92mCHAVE PÚBLICA.............................:\33[m {f"(n, e) = {chave[2], chave[4]}"}')
-        print(f'\33[92mCHAVE PRIVADA.............................:\33[m {f"(p, q, d) = {chave[0], chave[1], chave[5]}"}')
-        print(f'\33[92mMENSAGEM PRE-CRIPTOGRAFADA:...............:\33[m {msg_pre_criptografada}')
-        print(f'\33[92mMENSAGEM CRIPTOGRAFADA....................:\33[m {lista_caracteres_criptografados}')
-        print(f'\33[92mTAMANHO:..................................:\33[m {len(lista_caracteres_criptografados)}')
-        repetir_pergunta_visualizar = False
-    else:
-        if visualizar.upper() == 'N':
-            repetir_pergunta_visualizar = False
-            pass
-        else:
-            print("\33[31mOPÇÃO DESCONHECIDA, RESPONDA NOVAMENTE.\33[m")
-
-
-### CRIAR ARQUIVO SAVE
-
-
-#CRIAÇÃO DO DIRETÓRIO
-
-path_save_existe = False
-while not path_save_existe:
-    try:
-        path_save = input('\33[37mINFORME O NOME DO DIRETÓRIO...............: \33[m')
-        os.mkdir(path_save)
-        path_save_existe = True
-    except FileExistsError:
-        print('\33[31mDIRETÓRIO JÁ EXISTENTE, PASSE OUTRO NOME.\33[m')
-        path_save_existe = False
-
-
-
-### NOMEAÇÃO DOS ARQUIVOS
-name_file = datetime.now()
-name_file = str(name_file)
-name_file = hex(int(name_file.replace('-', '0').replace(':', '4').replace(' ', '5').replace('.', '7')))
-
-################################
-###CRIAÇÃO DOS ARQUIVOS
-################################
-
-#MENSAGEM CRIPTOGRAFADA
-name_file_saida = path_save + '/' + str(name_file) #Caminho do arquivo ao diretório, já com o nome do mesmo.
-
-arquivo_de_saida = open(name_file_saida, 'w+')
-
-arquivo_de_saida.write(str(lista_caracteres_criptografados).replace('[', '&').replace(']','!').replace(',','x').replace(' ',''))
-
-arquivo_de_saida.close()
-
-
-#############CHAVES#############
-
-
-## CHAVE PÚBLICA
-name_file_key_pb = path_save + '/' + 'pb'
-
-arquivo_key_pb = open(name_file_key_pb, 'w+')
-
-
-arquivo_key_pb.write(f'PB-{chave[2]}>{chave[4]}')
-
-arquivo_key_pb.close()
-
-
-## CHAVE PRIVADA
-name_file_key_pv = path_save + '/' + 'pv'
-
-arquivo_key_pv = open(name_file_key_pv, 'w+')
-
-
-arquivo_key_pv.write(f'PB-{chave[2]}>{chave[4]}&PV-{chave[0]}>{chave[1]}>{chave[5]}')
-
-arquivo_key_pv.close()
-
+if __name__ == '__main__':
+    test = RSA('mmmm')
+    print(test.dado_criptografado)
+    test.print_dados()
