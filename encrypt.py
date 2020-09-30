@@ -7,7 +7,7 @@ from crypt.RSA.codification import key
 """
 ___REGRAS GERASI DE LÓGICA DE CRIPTOGRAFIA___
 
-    1 --> Classe é definida como o conjunto de dados trabalhados, incluindo dados pre-criptografados, criptografados e chaves.
+    1 --> Classe é definida como o conjunto de dados trabalhados, incluindo dados pre-criptografados, dados criptografados e chaves.
 
     2 --> Toda classe, deve conter um dado legível, com:
         -- Um par de chaves completo, contendo:
@@ -37,7 +37,6 @@ class RSA:
         self.dado_preCriptografado = self.pre_criptografar(dado_legivel)
         self.dado_criptografado = self.criptografar(self.dado_preCriptografado)
 
-        # self.dict_key = {'p': self.key[0], 'q': self.key[1], 'n': self.key[2], 'phi': self.key[3], 'e': self.key[4], 'd': self.key[5]}
 
     def pre_criptografar(self, dado):
         return precrypt(list(dado), self.caracteres_para_chaves_de_preCriptografia)
@@ -50,19 +49,13 @@ class RSA:
 
         return dado_criptografado
 
-    def print_dados(self):
-        print(f'\33[92mCHAVE COMPLETA............................:\33[m {f"(p, q, n, phi, e, d) = {self.key}"}')
+    def info(self):
 
-        print(f'\33[92mCHAVE PÚBLICA.............................:\33[m {f"(n, e) = {self.key[2], self.key[4]}"}')
-        print(
-            f'\33[92mCHAVE PRIVADA.............................:\33[m {f"(p, q, d) = {self.key[0], self.key[1], self.key[5]}"}')
+        return f'CHAVE COMPLETA............................: {f"(p, q, n, phi, e, d) = {self.key}"}\nCHAVE PÚBLICA.............................:\33[m {f"(n, e) = {self.key[2], self.key[4]}"}\nCHAVE PRIVADA.............................:\33[m {f"(p, q, d) = {self.key[0], self.key[1], self.key[5]}"}\nDADO PRE-CRIPTOGRAFADO:...................:\33[m {self.dado_preCriptografado}\nDADO CRIPTOGRAFADO........................:\33[m {self.dado_criptografado}\nTAMANHO:..................................:\33[m {len(self.dado_legivel)}'
 
-        print(f'\33[92mDADO PRE-CRIPTOGRAFADO:...................:\33[m {self.dado_preCriptografado}')
-        print(f'\33[92mDADO CRIPTOGRAFADO........................:\33[m {self.dado_criptografado}')
-        print(f'\33[92mTAMANHO:..................................:\33[m {len(self.dado_legivel)}')
 
 
 if __name__ == '__main__':
     test = RSA('mmmm')
     print(test.dado_criptografado)
-    test.print_dados()
+    print(test.info())
