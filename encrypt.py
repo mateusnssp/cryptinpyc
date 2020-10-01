@@ -1,5 +1,6 @@
 # IMPORTAÇÕES
 
+
 # Own
 from precrypt.precrypt import *
 from crypt.RSA.codification import key
