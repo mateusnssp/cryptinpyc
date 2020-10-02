@@ -85,27 +85,35 @@ while console_running:
             pass
 
 
-        print('\n:::Caso queira, especifique um caminho para salvar ou cancele com "cancel":::\n:::Pressione enter para salvar no diretório padrão:::')
-        file_name = parametro()
 
-        if file_name.upper() == 'CANCEL':
+
+        # SALVAR CONTEÚDO
+
+        print('\n:::Caso queira, especifique um caminho para salvar ou cancele com "cancel":::\n:::Pressione enter para salvar no diretório padrão:::')
+        path = parametro()
+
+        if path.upper() == 'CANCEL':
             continue
-        if file_name.upper() == '':
-            file_name = standart
+        if path.upper() == '':
+            path = standart
         else:
             pass
 
-        print(file_name)
+        print(path)
 
-        print('\n:::Especifique um nome para o diretório ou pressione enter para escolha aleatória [protocolo de anonimidade]:::')
+        print('\n:::Especifique um nome para o diretório dos arquivos ou pressione enter para escolha pseudoaleatoria [protocolo de anonimidade]:::')
         name_dir = parametro()
 
 
         if name_dir == '':
-            pass
-        else:
-            pass
+            escolha_aleatoria = True
+            name_dir = None
 
+        else:
+            escolha_aleatoria = False
+
+
+        main.salvar(path, name_dir, escolha_aleatoria)
 
 
 
