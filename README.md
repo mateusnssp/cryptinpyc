@@ -1,6 +1,5 @@
 # cryptinpyc
- 
- ![Diagrama](./diagrama_de_blocos.png)
+
  
 ## Para contribuir:
 
