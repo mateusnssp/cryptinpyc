@@ -2,4 +2,4 @@
 
 #Gerar números bases
 
-./glp > lp.txt;
+./glp.py > lp.txt;

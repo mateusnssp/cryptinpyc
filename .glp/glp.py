@@ -1,3 +1,5 @@
+#!/bin/python3
+
 def generate_prime_numbers(lim):
     """
     Gera lista de números primos acima de 10**100
