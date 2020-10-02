@@ -112,6 +112,9 @@ while console_running:
     if command.upper() == 'EXIT' or command.upper() == 'QUIT':
         exit()
 
-if __name__ != '__main__':
-    def exe_externo():
-        print('\nC O N S O L E  I N I C I A L I Z A D O')
+
+
+
+
+def exe_externo():
+    pass
