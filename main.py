@@ -1,25 +1,47 @@
-def master(self):
-    print('master')
+# Importações
+
+#builtins
+import os
+from datetime import datetime
 
 
-def encrypt(self):
-    import encrypt
+# Own
+import encrypt
 
-    dado_legivel = input(
-        f'{color_open["verde"]}:::Insira o dado a ser criptografado:::\n{self.espera_parametro}{color_close["verde"]}')
-    encrypt = encrypt.RSA(dado_legivel)
-
-    resposta_pretendeVizualizar = input(
-        f'{color_open["verde"]}:::Pretende vizualizar o conteúdo criado? (Y/N):::\n{self.espera_parametro}{color_close["verde"]}')
-    if resposta_pretendeVizualizar.upper() == 'Y':
-        print(f'{encrypt.info()}')
-    else:
-        pass
+def criptografar(dado):
+    criptografia = encrypt.RSA(dado)
+    return criptografia.info()
 
 
-def descrypt(self):
-    print("EM CONSTRUÇÃO")
+
+#CRIAÇÃO DO DIRETÓRIO
+
+def criar_diretorio(path):
 
 
-def ajuda(self):
-    print('\n\n"h" para ajuda;\n"e" para criptografar\n"d" para descriptografar\n\n')
+
+    # Nomeação do arquivo
+
+    name_file = datetime.now()
+    name_file = str(name_file)
+    name_file = hex(int(name_file.replace('-', '0').replace(':', '4').replace(' ', '5').replace('.', '7')))
+
+    return name_file
+    # os.mkdir(path + name_dir)
+
+
+
+if __name__ == '__main__':
+
+    name_file = criar_diretorio('./')
+    print(name_file)
+
+
+    # import console
+    # console.exe_externo()
+
+
+
+
+
+
