@@ -3,6 +3,7 @@
 
 Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dados ilegíveis para pessoas não autorizadas a vê-los. Uma pessoa é autorizada a ver o conteúdo criptografado se tem a chave de descriptografia em mãos.
 
+*Entenda os algoritimos abordados neste repositório na [wiki](https://github.com/mateusnssp/cryptinpyc/wiki).*
  
 ## Para contribuir:
 
