@@ -16,10 +16,8 @@ Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dad
 
 ## Sugestões de onde contribuir:
 
-* Deixar o algoritimo do arquivo [`glp.py`](./.glp/glp.py) mais rápido que o estado atual, ou substituir a linguagem do mesmo (adaptando com a funcionalidade do [`glp.sh`](./.glp/glp.sh)).
-* Implementar o algoritimo RSA: [RSA](https://pt.m.wikipedia.org/wiki/RSA_(sistema_criptogr%C3%A1fico)).
-* Implementar função reversa do algoritimo RSA (descriptografia).
-* Criar interface gráfica para gerenciar todos os arquivos com o nome de `main`.
+* Procurar e reportar erros e problemas, criando uma [inssue](https://github.com/mateusnssp/cryptinpyc/issues);
+* Implementar função reversa do algoritimo RSA (decodificação).
 * Deixar o arquivo [`glp.sh`](./.glp/glp.sh) gerar o maior número de informações para [`lp.txt`](./.glp/lp.txt) possível.
 * Remover códigos mortos.
 
