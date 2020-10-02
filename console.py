@@ -21,8 +21,6 @@ if 12 <= time < 18:
     greeting = 'Boa tarde!'
 if 0 <= time < 5 or 18 <= time <= 24:
     greeting = 'Boa noite!'
-# else:
-#     greeting = "Olá"
 
 
 # Definição das cores.
