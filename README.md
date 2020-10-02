@@ -1,4 +1,5 @@
 # cryptinpyc
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dados ilegíveis para pessoas não autorizadas a vê-los. Uma pessoa é autorizada a ver o conteúdo criptografado se tem a chave de descriptografia em mãos.
 
