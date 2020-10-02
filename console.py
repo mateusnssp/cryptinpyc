@@ -76,11 +76,13 @@ while console_running:
         print('\n:::Informe os dados a serem criptografados:::')
         dado = parametro()
         conteudo = main.criptografar(dado)
+        print("------------------==============", type(conteudo[1]))
+        print(conteudo[1])
 
         print('\n:::Deseja exibir o conteúdo gerado? [Y/N]:::')
         resposta_exibir_conteudo_gerado = parametro()
         if resposta_exibir_conteudo_gerado.upper() == 'Y':
-            print(conteudo)
+            print(conteudo[0])
         if resposta_exibir_conteudo_gerado.upper() == 'N':
             pass
 
@@ -113,7 +115,7 @@ while console_running:
             escolha_aleatoria = False
 
 
-        main.salvar(path, name_dir, escolha_aleatoria)
+        main.salvar(conteudo[1], path, name_dir, escolha_aleatoria)
 
 
 
