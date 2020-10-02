@@ -14,11 +14,11 @@ Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dad
 5. Faça o Push para seu repositório (`git push origin feature/NOME_DA_MODIFICAÇÃO`);
 6. No seu repositório no Github crie uma Pull Request para que seja avaliada a suas modificações para ser feito o merge no projeto principal.
 
-## Sugestões de onde contribuir:
+## Sugestões de como contribuir:
 
 * Procurar e reportar erros e problemas, criando uma [inssue](https://github.com/mateusnssp/cryptinpyc/issues);
 * Implementar função reversa do algoritimo RSA (decodificação).
-* Deixar o arquivo [`glp.sh`](./.glp/glp.sh) gerar o maior número de informações para [`lp.txt`](./.glp/lp.txt) possível.
+* Deixar o arquivo [`glp.c`](./.glp/glp.c) gerar o maior número de informações para [`lp.txt`](./.glp/lp.txt) possível.
 * Remover códigos mortos.
 
 
