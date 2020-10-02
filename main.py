@@ -95,6 +95,7 @@ def salvar(conteudo, path, name_dir, escolha_aleatoria):
 
 
 if __name__ == '__main__':
+
     import console
 
     console.exe_externo()
