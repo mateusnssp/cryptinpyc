@@ -3,7 +3,7 @@
 # builtins
 import os
 from datetime import datetime
-import platform
+
 
 import random
 
@@ -13,16 +13,9 @@ import encrypt
 
 
 
-
-
 # Configurações de endereços
-sistema_operativo = platform.system()
-separador_diretorios = None
+separador_diretorios = '/'
 
-if sistema_operativo == 'Windows':
-    separador_diretorios = r'\\'
-else:
-    separador_diretorios = '/'
 
 
 def criptografar(dado):
@@ -34,16 +27,15 @@ def salvar(conteudo, path, name_dir, escolha_aleatoria):
     """
     Esta função salva o conteúdo gerado.
     """
-    ###################################
-    # Tratamento do conteúdo
-    ###################################
 
+    # Tratamento do conteúdo
     conteudo_criptografado = str(conteudo[0])
     chave_publica = str((conteudo[1][2], conteudo[1][4]))
     chave_privada = str((conteudo[1][0], conteudo[1][1], conteudo[1][5]))
 
-    # Nomeação do arquivo
 
+
+    # Nomeação do arquivo e do diretório
     m1 = random.choice(list(range(90))) + random.choice(list(range(90)))
     m2 = random.choice(list(range(90))) + random.choice(list(range(90)))
     m3 = random.choice(list(range(90))) + random.choice(list(range(90)))
@@ -51,12 +43,12 @@ def salvar(conteudo, path, name_dir, escolha_aleatoria):
 
     file_name = datetime.now()
     file_name = str(file_name)
-    file_name = hex(
-        int(file_name.replace('-', str(m1)).replace(':', str(m2)).replace(' ', str(m3)).replace('.', str(m4))))
+    file_name = hex(int(file_name.replace('-', str(m1)).replace(':', str(m2)).replace(' ', str(m3)).replace('.', str(m4))))
 
-    # Definição do nome do diretório
     if escolha_aleatoria:
         name_dir = file_name
+
+
 
     # Criação do diretório
     if path[-1] != separador_diretorios:
@@ -64,12 +56,9 @@ def salvar(conteudo, path, name_dir, escolha_aleatoria):
     else:
         os.mkdir(f'{path}{name_dir}')
 
-    ################################
-    ###CRIAÇÃO DOS ARQUIVOS
-    ################################
 
-    # CONTEÚDO CRIPTOGRAFADO
-
+    # Criação dos arquivos
+    #  --> CONTEÚDO CRIPTOGRAFADO <--
     caminho_do_arquivo = f'{path}{separador_diretorios}{name_dir}/{file_name}'
     arquivo_conteudo = open(caminho_do_arquivo, 'w+')  # Criação
 
@@ -78,9 +67,7 @@ def salvar(conteudo, path, name_dir, escolha_aleatoria):
 
     arquivo_conteudo.close()
 
-    #############CHAVES#############
-
-    # CHAVE PÚBLICA
+    # --> CHAVE PÚBLICA <--
     caminho_do_arquivo = f'{path}{separador_diretorios}{name_dir}/pb'
 
     arquivo_key_pb = open(caminho_do_arquivo, 'w+')
@@ -89,7 +76,7 @@ def salvar(conteudo, path, name_dir, escolha_aleatoria):
 
     arquivo_key_pb.close()
 
-    # CHAVE PRIVADA
+    # --> CHAVE PRIVADA <--
     caminho_do_arquivo = f'{path}{separador_diretorios}{name_dir}/pv'
 
     arquivo_key_pv = open(caminho_do_arquivo, 'w+')
@@ -99,8 +86,7 @@ def salvar(conteudo, path, name_dir, escolha_aleatoria):
     arquivo_key_pv.close()
 
 
+
 if __name__ == '__main__':
-
     import console
-
     console.exe_externo()
