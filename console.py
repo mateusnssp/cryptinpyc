@@ -24,22 +24,17 @@ if 0 <= time < 5 or 18 <= time <= 24:
 
 
 # Definição das cores.
-if sistema_operativo == 'Linux':
-    color_open = {'verde': '\33[92m'}
-    color_close = {'verde': '\33[m'}
-else:
-    color_open = {'verde': ''}
-    color_close = {'verde': ''}
+
+color_open = {'verde': '\33[92m'}
+color_close = {'verde': '\33[m'}
+
 
 # Atributos do console
 espera_parametro = '[] >>> '
 espera_comando = '[cryptinpyc] >>> '
 
 # Configuráveis:
-if sistema_operativo == 'Windows':
-    standart = input("Defina um diretório padrão")
-else:
-    standart = './'
+standart = './'
 
 
 def parametro():
@@ -117,4 +112,4 @@ while console_running:
 
 
 def exe_externo():
-    pass
+    return
