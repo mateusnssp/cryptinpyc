@@ -10,6 +10,11 @@ import random
 # Own
 import encrypt
 
+
+
+
+
+
 # Configurações de endereços
 sistema_operativo = platform.system()
 separador_diretorios = None
