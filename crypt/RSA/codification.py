@@ -5,9 +5,17 @@ from calc.mdc import mdc
 
 
 def key():
-    #################################################################################################
-    # Escolha de forma aleatória dois números primos grandes p e q
-    #################################################################################################
+
+    """
+    PROCESSO DE GERAÇÂO DE CHAVE:
+        - Escolha de forma aleatória dois números primos grandes p e q;
+        - Computar n = p * q;
+        - Computar phi(n) = (p - 1)*(q - 1);
+        - Escolher um inteiro  "e"  , 1 < "e" < phi(n) ,  "e" e phi(n) sejam primos entre si;
+        - Calcular d --> d seja inverso multiplicativo de e.
+
+        ::return [p, q, n, phi, e, d]::
+    """
 
     # Abrir lista dos números primos:
     # ../../.glp/lp.txt  -->  Endereço para teste
@@ -46,21 +54,17 @@ def key():
     # Fechar a lista dos números primos
     file.close()
 
-    #################################################################################################
-    # Computar n = p * q
-    #################################################################################################
+
 
     n = p * q
 
-    #################################################################################################
-    # Computart phi(n) = (p - 1)*(q - 1)
-    #################################################################################################
+
+
 
     phi = (p - 1) * (q - 1)
 
-    #################################################################################################
-    # Escolha um inteiro  "e"  , 1 < "e" < phi(n) ,  "e" e phi(n) sejam primos entre si.
-    #################################################################################################
+
+
 
     E_NO_OK = True
     while E_NO_OK:
@@ -78,7 +82,7 @@ def key():
                 if mdc(num, E) == 1:
                     return E
 
-        ##################################################
+
 
         # Abrir lista dos números primos:
         # ../../.glp/lp.txt  -->  Endereço para teste
@@ -105,8 +109,8 @@ def key():
         else:
             E_NO_OK = True
 
-    #################################################################################################
-    # Calcular d --> d seja inverso multiplicativo de e.
+
+
 
     d = modinv(e, phi)
 
