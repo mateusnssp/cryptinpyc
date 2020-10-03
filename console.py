@@ -37,6 +37,9 @@ espera_comando = '[cryptinpyc] >>> '
 standart = './'
 
 
+
+
+
 def parametro():
     return input(f'{color_open["verde"]}{espera_parametro}{color_close["verde"]}')
 
@@ -47,6 +50,10 @@ def comando():
 
 def ajuda_console():
     print('Ajuda')
+
+
+
+
 
 
 # INICIALIZAÇÃO
@@ -88,8 +95,7 @@ while console_running:
 
         print(path)
 
-        print(
-            '\n:::Especifique um nome para o diretório dos arquivos ou pressione enter para escolha pseudoaleatoria [protocolo de anonimidade]:::')
+        print('\n:::Especifique um nome para o diretório dos arquivos ou pressione enter para escolha pseudoaleatoria [protocolo de anonimidade]:::')
         name_dir = parametro()
 
         if name_dir == '':

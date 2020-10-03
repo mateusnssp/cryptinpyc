@@ -2,7 +2,7 @@
 
 
 # Own
-from precrypt.precrypt import *
+from pre.conversion import *
 from crypt.RSA.codification import key
 
 """
@@ -29,7 +29,7 @@ class RSA:
         Função construtora define as variáveis em ordem algorítmica para se adequar com a regra 1.
         """
 
-        self.caracteres_para_chaves_de_preCriptografia = './precrypt/caracteres'  # Caminho para caracteres,
+        self.caracteres_para_chaves_de_preCriptografia = './pre/caracteres'  # Caminho para caracteres,
 
         self.key = key()  # Definição das chaves (p, q, n, phi, e, d)
 

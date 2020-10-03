@@ -62,8 +62,7 @@ def salvar(conteudo, path, name_dir, escolha_aleatoria):
     caminho_do_arquivo = f'{path}{separador_diretorios}{name_dir}/{file_name}'
     arquivo_conteudo = open(caminho_do_arquivo, 'w+')  # Criação
 
-    arquivo_conteudo.write(
-        f'{conteudo_criptografado}'.replace('[', '&').replace(']', '!').replace(',', 'x').replace(' ', ''))
+    arquivo_conteudo.write(f'{conteudo_criptografado}'.replace('[', '&').replace(']', '!').replace(',', 'x').replace(' ', ''))
 
     arquivo_conteudo.close()
 
@@ -84,6 +83,7 @@ def salvar(conteudo, path, name_dir, escolha_aleatoria):
     arquivo_key_pv.write(f'PV-{chave_privada.replace(", ", ">").replace("(", "").replace(")", "")}')
 
     arquivo_key_pv.close()
+
 
 
 
