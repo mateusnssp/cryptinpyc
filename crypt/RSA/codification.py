@@ -1,8 +1,9 @@
 # Importações:
 import random
-from calc.mod_inverse import modinv
-from calc.mdc import mdc
-
+from calc import *
+# from calc.mod_inverse import modinv
+# from calc.mdc import mdc
+#
 
 def key():
 
@@ -61,7 +62,7 @@ def key():
 
 
 
-    phi = (p - 1) * (q - 1)
+    phi = calc.phi
 
 
 
@@ -83,7 +84,6 @@ def key():
                     return E
 
 
-
         # Abrir lista dos números primos:
         # ../../.glp/lp.txt  -->  Endereço para teste
         # ./.glp/lp.txt      -->  Endereço para main
@@ -92,6 +92,9 @@ def key():
         else:
             file = open('./.glp/lp.txt')
 
+
+
+
         linha_e = random.choice(range(quantidade_de_linhas))  # sorteio da linha
         file.seek(0, 0)  # Redefinição
         file.seek(tamanho_da_linha * linha_e)  # posicionamento na linha escolhida
@@ -99,6 +102,14 @@ def key():
         e_beta = int(file.readline())
 
         e = generate_E(e_beta)
+
+
+
+
+
+
+
+
 
         # Fechar a lista dos números primos
         file.close()

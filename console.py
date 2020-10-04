@@ -5,6 +5,7 @@ import platform
 
 # Own
 import main
+import file_generator
 
 # configurações de interface e informações básicas
 
@@ -105,7 +106,7 @@ while console_running:
         else:
             escolha_aleatoria = False
 
-        main.salvar(conteudo[1], path, name_dir, escolha_aleatoria)
+        file_generator.write(conteudo[1], path, name_dir, escolha_aleatoria)
 
     if command.upper() == 'D':
         pass
