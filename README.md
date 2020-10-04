@@ -17,8 +17,7 @@ Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dad
 ## Sugestões de como contribuir:
 
 * Procurar e reportar erros e problemas, criando uma [inssue](https://github.com/mateusnssp/cryptinpyc/issues);
-* Implementar função reversa do algoritimo RSA (decodificação).
-* Deixar o arquivo [`glp.c`](./.glp/glp.c) gerar o maior número de informações para [`lp.txt`](./.glp/lp.txt) possível.
+* Deixar o arquivo [`glp.c`](./.glp/glp.c) gerar o maior número de informações para [`lp.txt`](./.glp/lp.txt) possível;
 * Remover códigos mortos.
 
 
