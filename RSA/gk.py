@@ -22,6 +22,8 @@ class Keys:
             Chaves --> (pb, pv) [Conjunto das variáveis de cálculo]
     """
 
+    
+
     def __init__(self):
         self.variaveisPseudoaleatorias = self.gerar_variaveis_pseudoaleatorias()
         self.variaviesDeCalculo = self.calcular_vairaveis_de_calculo(self.variaveisPseudoaleatorias[0],
