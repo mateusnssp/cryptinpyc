@@ -40,7 +40,7 @@ class RSA:
 
 
     def pre_criptografar(self, dado):
-        return precrypt(list(dado), self.caracteres_para_chaves_de_preCriptografia)
+        return precrypt(dado)
 
     def criptografar(self, dado):
         dado_criptografado = []
