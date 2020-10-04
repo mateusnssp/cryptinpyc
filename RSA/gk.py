@@ -11,6 +11,7 @@ pv --> p, q, d --> guardar p e q é opcional.
 
 """
 
+
 class Keys:
     """
     Os componentes construtores da classe foram divididos em tipos:
@@ -22,14 +23,11 @@ class Keys:
             Chaves --> (pb, pv) [Conjunto das variáveis de cálculo]
     """
 
-    
-
     def __init__(self):
         self.variaveisPseudoaleatorias = self.gerar_variaveis_pseudoaleatorias()
         self.variaviesDeCalculo = self.calcular_vairaveis_de_calculo(self.variaveisPseudoaleatorias[0],
                                                                      self.variaveisPseudoaleatorias[1],
                                                                      self.variaveisPseudoaleatorias[2])
-
         self.pb = self.g_pb(self.variaviesDeCalculo[0], self.variaveisPseudoaleatorias[2])
         self.pv = self.g_pv(self.variaveisPseudoaleatorias[0], self.variaveisPseudoaleatorias[1],
                             self.variaviesDeCalculo[2])
