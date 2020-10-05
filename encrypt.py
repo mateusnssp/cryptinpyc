@@ -36,10 +36,13 @@ class Encrypt:
     def pre_criptografar(dado): return pre.conversion.precrypt(dado)
 
     @staticmethod
+    """
+    pow(caractere, e, mod=n)
+    """
     def criptografar(chave_pb, dadoPreCriptografado):
         dadoCriptografado = []
         for caractere in dadoPreCriptografado:
-            caractereCriptografado = pow(caractere, chave_pb[1], mod=chave_pb[0]) # pow(caractere, e, mod=n)
+            caractereCriptografado = pow(caractere, chave_pb[1], mod=chave_pb[0])
             dadoCriptografado.append(caractereCriptografado)
         return dadoCriptografado
 
