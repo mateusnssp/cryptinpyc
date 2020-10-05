@@ -2,8 +2,7 @@
 
 
 # Own
-from pre.conversion import *
-from crypt.RSA.codification import key
+import pre.conversion
 
 """
 ___REGRAS GERASI DE LÓGICA DE CRIPTOGRAFIA___
@@ -19,50 +18,48 @@ ___REGRAS GERASI DE LÓGICA DE CRIPTOGRAFIA___
 
 
 
+preCodificação = [27, 28, 10]
+
 """
 
 
-class RSA:
+class Encrypt:
 
-    def __init__(self, dado_legivel):
-        """
-        Função construtora define as variáveis em ordem algorítmica para se adequar com a regra 1.
-        """
+    def __init__(self, pb, dado):
+        self.pb = pb
+        self.dado = dado
 
-        self.caracteres_para_chaves_de_preCriptografia = './pre/caracteres'  # Caminho para caracteres,
+        self.dadoPreCriptografado = self.pre_criptografar(self.dado)
+        self.dadoCriptografado = self.criptografar(self.pb, self.dadoPreCriptografado)
 
-        self.key = key()  # Definição das chaves (p, q, n, phi, e, d)
+    @staticmethod
+    def pre_criptografar(dado): return pre.conversion.precrypt(dado)
 
-        self.dado_legivel = dado_legivel
-
-        self.dado_preCriptografado = self.pre_criptografar(dado_legivel)
-        self.dado_criptografado = self.criptografar(self.dado_preCriptografado)
-
-
-    def pre_criptografar(self, dado):
-        return precrypt(dado)
-
-    def criptografar(self, dado):
-        dado_criptografado = []
-        for caractere in dado:
-            caractere_criptografado = pow(caractere, self.key[4], mod=self.key[5])  # pow(caractere, e, mod=d)
-            dado_criptografado.append(caractere_criptografado)
-
-        return dado_criptografado
+    @staticmethod
+    def criptografar(chave_pb, dadoPreCriptografado):
+        dadoCriptografado = []
+        for caractere in dadoPreCriptografado:
+            caractereCriptografado = pow(caractere, chave_pb[1], mod=chave_pb[0]) # pow(caractere, e, mod=n)
+            dadoCriptografado.append(caractereCriptografado)
+        return dadoCriptografado
 
 
 
-    def info(self):
-
-        return f'CHAVE COMPLETA............................: {f"(p, q, n, phi, e, d) = {self.key}"}\nCHAVE PÚBLICA.............................:\33[m {f"(n, e) = {self.key[2], self.key[4]}"}\nCHAVE PRIVADA.............................:\33[m {f"(p, q, d) = {self.key[0], self.key[1], self.key[5]}"}\nDADO PRE-CRIPTOGRAFADO:...................:\33[m {self.dado_preCriptografado}\nDADO CRIPTOGRAFADO........................:\33[m {self.dado_criptografado}\nTAMANHO:..................................:\33[m {len(self.dado_legivel)}'
-
-
-    def return_conteudo(self):
-        return [self.dado_criptografado, self.key]
 
 
 
 if __name__ == '__main__':
-    test = RSA('mmmm')
-    print(test.dado_criptografado)
-    print(test.info())
+
+    """
+    Teste criptografia
+    variáveis aleatórias --> (p, q) = (5, 7)
+    chave pb --> (n, e) = (35, 7)
+    dado legível --> ['\n']
+    pré-codificação --> [27, 28, 10]
+    dado codificado --> [13, 7, 10]
+    """
+    test = Encrypt((35, 7), '\n')
+    print(test.dadoPreCriptografado)
+    print(test.dadoCriptografado)
+
+
