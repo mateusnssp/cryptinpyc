@@ -41,7 +41,10 @@ class Keys:
         tamanho_da_linha = 7  # todas as linhas do arquivo lp.txt tem 7 bytes (contando com os \n)
         quantidade_de_linhas = 41637
 
-        with open('../.glp/lp.txt') as bd:
+
+        caminhoBancoDeDados = '../.glp/lp.txt' if __name__ == '__main__' else './.glp/lp.txt'
+
+        with open(caminhoBancoDeDados) as bd:
 
             # (p, q)
             while not p_diferente_q:
