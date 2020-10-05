@@ -1,92 +1,93 @@
-# Importações
+# IMPORTAÇÕES
 
-# builtins
-import os
-from datetime import datetime
-
-
-import random
 
 # Own
-import encrypt
+import pre.conversion
+
+"""
+___REGRAS GERASI DE LÓGICA DE CRIPTOGRAFIA___
+
+    1 --> Classe é definida como o conjunto de dados trabalhados, incluindo dados pre-criptografados, dados criptografados e chaves.
+
+    2 --> Toda classe, deve conter um dado legível, com:
+        -- Um par de chaves completo, contendo:
+                -- Uma chave correspondente pública;
+                -- Uma chave correspondente privada.
+        -- Um dado correspondente pre-criptografado;
+        -- Um dado correspondente criptografado.
+"""
 
 
+class Encrypt:
+
+    def __init__(self, pb, dado):
+        self.pb = pb
+        self.dado = dado
+
+        self.dadoPreCriptografado = self.pre_criptografar(self.dado)
+        self.dadoCriptografado = self.criptografar(self.pb, self.dadoPreCriptografado)
+
+    @staticmethod
+    def pre_criptografar(dado): return pre.conversion.precrypt(dado)
+
+    @staticmethod
+    def criptografar(chave_pb, dadoPreCriptografado):
+        """
+        pow(caractere, e, mod=n)
+        """
+        dadoCriptografado = []
+        for caractere in dadoPreCriptografado:
+            caractereCriptografado = pow(caractere, chave_pb[1], mod=chave_pb[0])
+            dadoCriptografado.append(caractereCriptografado)
+        return dadoCriptografado
 
 
-# Configurações de endereços
-separador_diretorios = '/'
+class Decrypt:
 
+    def __init__(self, pv, dado):
+        self.pv = pv
+        self.dado = dado
 
+        self.dadoDecodificado = self.decodificar(self.pv, self.dado)
+        self.dadoLegivel = self.pre_decodificar(self.dadoDecodificado)
 
-def criptografar(dado):
-    criptografia = encrypt.RSA(dado)
-    return [criptografia.info(), criptografia.return_conteudo()]
+    @staticmethod
+    def decodificar(chave_pv, dadoCriptografado):
+        """
+        pow(caractere, d, mod=n
+        """
+        n = chave_pv[0] * chave_pv[1]
+        dadoDecodificado = []
+        for caractere in dadoCriptografado:
+            caractereDecodificado = pow(caractere, chave_pv[2], mod=n)
+            dadoDecodificado.append(caractereDecodificado)
+        return dadoDecodificado
 
-
-# def salvar(conteudo, path, name_dir, escolha_aleatoria):
-#     """
-#     Esta função salva o conteúdo gerado.
-#     """
-#
-#     # Tratamento do conteúdo
-#     conteudo_criptografado = str(conteudo[0])
-#     chave_publica = str((conteudo[1][2], conteudo[1][4]))
-#     chave_privada = str((conteudo[1][0], conteudo[1][1], conteudo[1][5]))
-#
-#
-#
-#     # Nomeação do arquivo e do diretório
-#     m1 = random.choice(list(range(90))) + random.choice(list(range(90)))
-#     m2 = random.choice(list(range(90))) + random.choice(list(range(90)))
-#     m3 = random.choice(list(range(90))) + random.choice(list(range(90)))
-#     m4 = random.choice(list(range(90))) + random.choice(list(range(90)))
-#
-#     file_name = datetime.now()
-#     file_name = str(file_name)
-#     file_name = hex(int(file_name.replace('-', str(m1)).replace(':', str(m2)).replace(' ', str(m3)).replace('.', str(m4))))
-#
-#     if escolha_aleatoria:
-#         name_dir = file_name
-#
-#
-#
-#     # Criação do diretório
-#     if path[-1] != separador_diretorios:
-#         os.mkdir(f'{path}{separador_diretorios}{name_dir}')
-#     else:
-#         os.mkdir(f'{path}{name_dir}')
-#
-#
-#     # Criação dos arquivos
-#     #  --> CONTEÚDO CRIPTOGRAFADO <--
-#     caminho_do_arquivo = f'{path}{separador_diretorios}{name_dir}/{file_name}'
-#     arquivo_conteudo = open(caminho_do_arquivo, 'w+')  # Criação
-#
-#     arquivo_conteudo.write(f'{conteudo_criptografado}'.replace('[', '&').replace(']', '!').replace(',', 'x').replace(' ', ''))
-#
-#     arquivo_conteudo.close()
-#
-#     # --> CHAVE PÚBLICA <--
-#     caminho_do_arquivo = f'{path}{separador_diretorios}{name_dir}/pb'
-#
-#     arquivo_key_pb = open(caminho_do_arquivo, 'w+')
-#
-#     arquivo_key_pb.write(f'PB-{chave_publica.replace(", ", ">").replace("(", "").replace(")", "")}')
-#
-#     arquivo_key_pb.close()
-#
-#     # --> CHAVE PRIVADA <--
-#     caminho_do_arquivo = f'{path}{separador_diretorios}{name_dir}/pv'
-#
-#     arquivo_key_pv = open(caminho_do_arquivo, 'w+')
-#
-#     arquivo_key_pv.write(f'PV-{chave_privada.replace(", ", ">").replace("(", "").replace(")", "")}')
-#
-#     arquivo_key_pv.close()
-
-
+    @staticmethod
+    def pre_decodificar(dado): return pre.conversion.de_precrypt(dado)
 
 
 if __name__ == '__main__':
-    import console
-    console.exe_externo()
+    """
+    variáveis aleatórias --> (p, q) = (5, 7)
+    chave pb --> (n, e) = (35, 7)
+    cahve pv --> (p, q, d) = (5, 7, 7)
+    
+    Criptografia:
+    dado legível --> ['\n']
+    pré-codificação --> [27, 28, 10]
+    dado codificado --> [13, 7, 10]
+    
+    Decodificação:
+    dado codificado --> [13, 7, 10]
+    pré-codificação --> [27, 28, 10]
+    dado decodificado / legível --> ['\n']
+    """
+
+    testeCriptografar = Encrypt((35, 7), 'oi')
+    print(testeCriptografar.dadoPreCriptografado)
+    print(testeCriptografar.dadoCriptografado)
+
+    testeDecodificar = Decrypt((5, 7, 7), [6, 0])
+    print(testeDecodificar.dadoDecodificado)
+    print(testeDecodificar.dadoLegivel)
