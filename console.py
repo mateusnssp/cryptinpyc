@@ -4,7 +4,7 @@ from datetime import *
 import platform
 
 # Own
-import main
+import m
 import file_generator
 
 # configurações de interface e informações básicas
@@ -72,7 +72,7 @@ while console_running:
     if command.upper() == 'E':
         print('\n:::Informe os dados a serem criptografados:::')
         dado = parametro()
-        conteudo = main.criptografar(dado)
+        conteudo = m.criptografar(dado)
 
         print('\n:::Deseja exibir o conteúdo gerado? [Y/N]:::')
         resposta_exibir_conteudo_gerado = parametro()
