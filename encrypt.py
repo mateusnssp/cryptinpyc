@@ -15,11 +15,6 @@ ___REGRAS GERASI DE LÓGICA DE CRIPTOGRAFIA___
                 -- Uma chave correspondente privada.
         -- Um dado correspondente pre-criptografado;
         -- Um dado correspondente criptografado.
-
-
-
-preCodificação = [27, 28, 10]
-
 """
 
 
@@ -36,10 +31,10 @@ class Encrypt:
     def pre_criptografar(dado): return pre.conversion.precrypt(dado)
 
     @staticmethod
-    """
-    pow(caractere, e, mod=n)
-    """
     def criptografar(chave_pb, dadoPreCriptografado):
+        """
+        pow(caractere, e, mod=n)
+        """
         dadoCriptografado = []
         for caractere in dadoPreCriptografado:
             caractereCriptografado = pow(caractere, chave_pb[1], mod=chave_pb[0])
@@ -47,12 +42,7 @@ class Encrypt:
         return dadoCriptografado
 
 
-
-
-
-
 if __name__ == '__main__':
-
     """
     Teste criptografia
     variáveis aleatórias --> (p, q) = (5, 7)
@@ -61,8 +51,7 @@ if __name__ == '__main__':
     pré-codificação --> [27, 28, 10]
     dado codificado --> [13, 7, 10]
     """
-    test = Encrypt((35, 7), '\n')
+
+    test = Encrypt((35, 7), """\n""")
     print(test.dadoPreCriptografado)
     print(test.dadoCriptografado)
-
-
