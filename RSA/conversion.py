@@ -5,7 +5,7 @@
 
 
 """
-___REGRAS GERASI DE LÓGICA DE CRIPTOGRAFIA___
+___REGRAS GERAIS DE LÓGICA DE CRIPTOGRAFIA___
 
     1 --> Classe é definida como o conjunto de dados trabalhados, incluindo dados pre-criptografados, dados criptografados e chaves.
 
