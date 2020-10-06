@@ -1,10 +1,7 @@
 # Importações
 
 # Own
-from RSA import gk
-from RSA import preCoding
-from RSA import conversion
-
+from RSA import gk, preCoding, conversion
 
 """
     ATRIBUTOS:
@@ -23,27 +20,19 @@ from RSA import conversion
     
 """
 
+
 class RSA:
     def __init__(self):
-
-
         self.keys = gk.Keys()
         self.pb, self.pv = self.keys.pb, self.keys.pv
 
-
-
-
-
     def encrypt(self, dado):
-
         dado = preCoding.precrypt(dado)
         encrypt = conversion.Encrypt(self.pb, dado)
 
         return encrypt.dadoCriptografado
 
-
     def decrypt(self, dado, pv):
-
         decrypt = conversion.Decrypt(pv, dado)
 
         decrypt = preCoding.de_precrypt(decrypt.dadoDecodificado)
@@ -51,13 +40,13 @@ class RSA:
         return decrypt
 
 
-
-
 if __name__ == '__main__':
     test = RSA()
     print(test.encrypt('Mateus!'))
     print(test.pv)
-    print(''.join(test.decrypt([114150791279, 109345633586, 162773109449, 35164162070, 43250113339, 43133982253, 109387188070], (612811, 279857, 46067732203))))
+    print(''.join(
+        test.decrypt([114150791279, 109345633586, 162773109449, 35164162070, 43250113339, 43133982253, 109387188070],
+                     (612811, 279857, 46067732203))))
 """
 
 
