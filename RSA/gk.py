@@ -42,7 +42,7 @@ class Keys:
         quantidade_de_linhas = 41637
 
 
-        caminhoBancoDeDados = '../.glp/lp.txt' if __name__ == '__main__' else './.glp/lp.txt'
+        caminhoBancoDeDados = '../.glp/lp.txt' if __name__ == '__main__' else '../.glp/lp.txt'
 
         with open(caminhoBancoDeDados) as bd:
 
