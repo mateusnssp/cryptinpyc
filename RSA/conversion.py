@@ -1,9 +1,3 @@
-# IMPORTAÇÕES
-
-
-# Own
-
-
 """
 ___REGRAS GERAIS DE LÓGICA DE CRIPTOGRAFIA___
 
@@ -65,39 +59,6 @@ class Decrypt:
 
 
 if __name__ == '__main__':
-    """
-      variáveis aleatórias --> (p, q) = (5, 7)
-      chave pb --> (n, e) = (35, 7)
-      cahve pv --> (p, q, d) = (5, 7, 7)
-
-      Criptografia:
-      dado legível --> ['\n']
-      pré-codificação --> [27, 28, 10]
-      dado codificado --> [13, 7, 10]
-
-      Decodificação:
-      dado codificado --> [13, 7, 10]
-      pré-codificação --> [27, 28, 10]
-      dado decodificado / legível --> ['\n']
-      """
-
-
-    # testeE = Encrypt((35, 7), [27, 28, 10])
-    # print(testeE.dadoCriptografado)
-    #
-    # testeD = Decrypt((5, 7, 7), [13, 7, 10])
-    # print(testeD.dadoDecodificado)
-
-    from RSA import gk
-
-    # keys = gk.Keys()
-    # pb = keys.pb
-    # pv = keys.pv
-    # print(pb)
-    # print(pv)
-
-    testeE = Encrypt((222631833847, 149206200581), [12, 13])
-    print(testeE.dadoCriptografado)
 
     """
     pb - (n,e) = (222631833847, 149206200581)
@@ -107,5 +68,7 @@ if __name__ == '__main__':
     dadoCriptografado = [148418125426, 127705656928]
     """
 
+    testeE = Encrypt((222631833847, 149206200581), [12, 13])
+    print(testeE.dadoCriptografado)
     testeD = Decrypt((558791, 398417, 150760677421), [148418125426, 127705656928])
     print(testeD.dadoDecodificado)
