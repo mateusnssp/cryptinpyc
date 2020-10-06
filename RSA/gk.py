@@ -7,7 +7,7 @@ import calc
 """
 (AS CHAVES DEVEM SEGUIR ESTE PADRÃO)
 pb --> n, e
-pv --> p, q, d --> guardar p e q é opcional.
+pv --> p, q, d
 
 """
 
@@ -34,13 +34,11 @@ class Keys:
 
     @staticmethod
     def gerar_variaveis_pseudoaleatorias():
-        # Funções
 
         # Definição de variáveis
         p, q, p_diferente_q = None, None, False
         tamanho_da_linha = 7  # todas as linhas do arquivo lp.txt tem 7 bytes (contando com os \n)
         quantidade_de_linhas = 41637
-
 
         caminhoBancoDeDados = '../.glp/lp.txt' if __name__ == '__main__' else '../.glp/lp.txt'
 
