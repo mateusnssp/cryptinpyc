@@ -15,4 +15,3 @@ def de_precrypt(conteudo):
 if __name__ == '__main__':
     print(precrypt('Loren'))
     print(de_precrypt([76, 111, 114, 101, 110]))
-
