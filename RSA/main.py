@@ -42,7 +42,8 @@ class RSA:
 
 if __name__ == '__main__':
     test = RSA()
-    print(test.encrypt('Mateus!'))
+    dado = input("Dado: ")
+    print(test.encrypt(dado))
     print(test.pv)
     print(''.join(
         test.decrypt([114150791279, 109345633586, 162773109449, 35164162070, 43250113339, 43133982253, 109387188070],
