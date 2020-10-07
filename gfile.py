@@ -26,9 +26,17 @@ class File:
 
         # Caso o nome do diretório não seja escolhido pelo usuário, o mesmo receberá nome aleatório.
         if name_dir is None:
-            os.mkdir(f'{path if path[-1] == "/" else f"{path}/"}{self.name}')
+            self.path = f'{path if path[-1] == "/" else f"{path}/"}{self.name}'
         else:
-            os.mkdir(f'{path if path[-1] == "/" else f"{path}/"}{self.name_dir}')
+            self.path = f'{path if path[-1] == "/" else f"{path}/"}{self.name_dir}'
+
+        os.mkdir(self.path)
+        self.path = f'{self.path}/'  # Novo caminho para salvar arquivos
+
+
+        self.salvar_dado()
+        self.salvar_pb()
+        self.salvar_pv()
 
     def gerar_dado_formatado(self, dado, hash_l1, hash_l2):
         dado = str(dado)
@@ -63,14 +71,18 @@ class File:
         pv = f'{hash_verificador}{pv}{hash_verificador}'
         return pv
 
-    def salvar_dado(self, dado_formatado):
-        pass
+    def salvar_dado(self):
+        with open(f'{self.path}/{self.name}', 'w+') as file:
+            file.write(self.dadoFormatado)
 
-    def salvar_pb(self, pb_formatado):
-        pass
 
-    def salvar_pv(self, pv_formatado):
-        pass
+    def salvar_pb(self):
+        with open(f'{self.path}/pb', 'w+') as file:
+            file.write(self.pbFormatado)
+
+    def salvar_pv(self):
+        with open(f'{self.path}/pv', 'w+') as file:
+            file.write(self.pvFormatado)
 
 
 if __name__ == '__main__':
