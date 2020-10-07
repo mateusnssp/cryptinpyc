@@ -45,7 +45,7 @@ class Keys:
         with open(caminhoBancoDeDados) as bd:
 
             # (p, q)
-            while not p_diferente_q:
+            while not p_diferente_q:  # Garantir que p e q sejam diferentes
                 if p == q:
                     # Escolha de p
                     linha_p = random.choice(range(quantidade_de_linhas))  # sorteio da linha
