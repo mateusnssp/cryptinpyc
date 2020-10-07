@@ -22,7 +22,7 @@ class File:
         self.pvFormatado = self.gerar_pv_formatado(self.pv, self.hash_l1, self.hash_l2)
 
         self.name = str(datetime.today())
-        self.name = f"{hashlib.md5(self.name.encode('utf-8')).hexdigest()[4:11]}{hex(int(self.name[18]) * int(self.name[20:-1]))}"
+        self.name = f"{hashlib.md5(self.name.encode('utf-8')).hexdigest()[4:7]}"
 
         # Caso o nome do diretório não seja escolhido pelo usuário, o mesmo receberá nome aleatório.
         if name_dir is None:
