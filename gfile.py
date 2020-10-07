@@ -24,7 +24,7 @@ class File:
         self.name = str(datetime.today())
         self.name = f"{hashlib.md5(self.name.encode('utf-8')).hexdigest()[4:7]}"
 
-        # Caso o nome do diretório não seja escolhido pelo usuário, o mesmo receberá nome aleatório.
+        # Caso o nome do diretório não seja escolhido pelo usuário, o mesmo receberá nome "aleatório".
         if name_dir is None:
             self.path = f'{path if path[-1] == "/" else f"{path}/"}{self.name}'
         else:
