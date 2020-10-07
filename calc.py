@@ -1,6 +1,8 @@
 import random
 
 
+
+
 def mdc(a, b):
     if b == 0:
         return a
@@ -8,15 +10,6 @@ def mdc(a, b):
     a = b
     b = resto
     return mdc(a, b)
-
-
-
-
-
-
-
-
-
 
 
 
@@ -28,6 +21,7 @@ def egcd(a, b):
         return g, x - (b // a) * y, y
 
 
+
 def modinv(a, m):  # (e, phi) ou --> (número multiplicado por d, módulo)
     g, x, y = egcd(a, m)
     if g != 1:
@@ -37,42 +31,11 @@ def modinv(a, m):  # (e, phi) ou --> (número multiplicado por d, módulo)
 
 
 
+def n(p, q): return p * q
 
 
 
-
-
-
-
-
-
-
-def n(p, q):
-    return p * q
-
-
-
-
-
-
-
-
-
-
-
-
-def phi(p, q):
-    return (p-1)*(q-1)
-
-
-
-
-
-
-
-
-
-
+def phi(p, q): return (p-1)*(q-1)
 
 
 
@@ -81,4 +44,3 @@ def gerar_e(num):
         e = random.randrange(2, num)
         if mdc(num, e) == 1:
             return e
-
