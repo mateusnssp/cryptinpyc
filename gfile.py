@@ -1,8 +1,15 @@
 import hashlib
 from datetime import datetime
+import os
+import random
+
 
 class File:
-    def __init__(self, pb, pv, dado):
+    def __init__(self, pb, pv, dado, path='./', name_dir=None):
+
+        self.path = path
+        self.name_dir = name_dir
+
         self.pb = pb
         self.pv = pv
         self.dado = dado
@@ -13,6 +20,16 @@ class File:
         self.dadoFormatado = self.gerar_dado_formatado(self.dado, self.hash_l1, self.hash_l2)
         self.pbFormatado = self.gerar_pb_formatado(self.pb, self.hash_l1, self.hash_l2)
         self.pvFormatado = self.gerar_pv_formatado(self.pv, self.hash_l1, self.hash_l2)
+
+        self.name = str(datetime.today())
+        self.name = hex(int(self.name[18]) * int(self.name[20:-1]) + int(self.name[random.randrange(20, 25)]))
+        print(self.name)
+
+        # Caso o nome do diretório não seja escolhido pelo usuário, o mesmo receberá nome aleatório.
+        if name_dir is None:
+            os.mkdir(f'{path if path[-1] == "/" else f"{path}/"}{self.name}')
+        else:
+            os.mkdir(f'{path if path[-1] == "/" else f"{path}/"}{self.name_dir}')
 
     def gerar_dado_formatado(self, dado, hash_l1, hash_l2):
         dado = str(dado)
@@ -57,11 +74,9 @@ class File:
         pass
 
 
-
-
 if __name__ == '__main__':
     test = File((139167535853, 38798205863), (139167535853, 139166718300, 67749101327),
-                [657345, 26395299, 5754352, 21413413, 5124512416])
+                [657345, 26395299, 5754352, 21413413, 5124512416], './', 'oi')
     print(test.dadoFormatado)
     print(test.pbFormatado)
     print(test.pvFormatado)
