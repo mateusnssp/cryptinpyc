@@ -1,7 +1,7 @@
 import hashlib
 from datetime import datetime
 import os
-import random
+
 
 
 class File:
@@ -22,8 +22,7 @@ class File:
         self.pvFormatado = self.gerar_pv_formatado(self.pv, self.hash_l1, self.hash_l2)
 
         self.name = str(datetime.today())
-        self.name = hex(int(self.name[18]) * int(self.name[20:-1]) + int(self.name[random.randrange(20, 25)]))
-        print(self.name)
+        self.name = f"{hashlib.md5(self.name.encode('utf-8')).hexdigest()[4:11]}{hex(int(self.name[18]) * int(self.name[20:-1]))}"
 
         # Caso o nome do diretório não seja escolhido pelo usuário, o mesmo receberá nome aleatório.
         if name_dir is None:
@@ -76,7 +75,7 @@ class File:
 
 if __name__ == '__main__':
     test = File((139167535853, 38798205863), (139167535853, 139166718300, 67749101327),
-                [657345, 26395299, 5754352, 21413413, 5124512416], './', 'oi')
+                [657345, 26395299, 5754352, 21413413, 5124512416], './')
     print(test.dadoFormatado)
     print(test.pbFormatado)
     print(test.pvFormatado)
