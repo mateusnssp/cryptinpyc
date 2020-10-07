@@ -72,7 +72,7 @@ class File:
         return pv
 
     def salvar_dado(self):
-        with open(f'{self.path}/{self.name}', 'w+') as file:
+        with open(f'{self.path}/ief', 'w+') as file:
             file.write(self.dadoFormatado)
 
 
