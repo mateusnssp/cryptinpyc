@@ -44,9 +44,7 @@ class File:
             if dado.count(char) > 0:
                 dado = dado.replace(char, str(hash_l2[hash_l1.index(char)]))
 
-        hash_verificador = hashlib.md5(dado.encode('utf-8')).hexdigest()
-
-        dado = f'{hash_verificador}{dado}{hash_verificador}'
+        dado = f'{dado}'
         return dado
 
     def gerar_pb_formatado(self, pb, hash_l1, hash_l2):
@@ -55,9 +53,7 @@ class File:
             if pb.count(char) > 0:
                 pb = pb.replace(char, str(hash_l2[hash_l1.index(char)]))
 
-        hash_verificador = hashlib.md5(pb.encode('utf-8')).hexdigest()
-
-        pb = f'{hash_verificador}{pb}{hash_verificador}'
+        pb = f'{pb}'
         return pb
 
     def gerar_pv_formatado(self, pv, hash_l1, hash_l2):
@@ -66,9 +62,7 @@ class File:
             if pv.count(char) > 0:
                 pv = pv.replace(char, str(hash_l2[hash_l1.index(char)]))
 
-        hash_verificador = hashlib.md5(pv.encode('utf-8')).hexdigest()
-
-        pv = f'{hash_verificador}{pv}{hash_verificador}'
+        pv = f'{pv}'
         return pv
 
     def salvar_dado(self):
