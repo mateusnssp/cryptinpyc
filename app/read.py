@@ -28,7 +28,7 @@ class Read:
 
 
 if __name__ == '__main__':
-    test = Read('./66c')
+    test = Read('./c0e')
     print(test.dado)
     print(test.pb)
     print(test.pv)

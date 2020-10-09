@@ -2,7 +2,7 @@
 # Builtins
 import random
 # OWn
-import calc
+from app import calc
 
 """
 (AS CHAVES DEVEM SEGUIR ESTE PADRÃO)

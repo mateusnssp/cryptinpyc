@@ -19,7 +19,7 @@ Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dad
 Aqui está uma lista de coisas importantes para o projeto, não desconsiderando que qualquer contribuição é válida:
 
 * Procurar e reportar erros e problemas, criando uma [inssue](https://github.com/mateusnssp/cryptinpyc/issues);
-* Deixar o arquivo [`glp.c`](./.glp/glp.c) gerar o maior número de informações para [`lp.txt`](./.glp/lp.txt) possível;
+* Deixar o arquivo [`glp.c`](app/.glp/glp.c) gerar o maior número de informações para [`lp.txt`](app/.glp/lp.txt) possível;
 * Remover códigos mortos.
 
 
