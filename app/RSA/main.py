@@ -42,17 +42,10 @@ class RSA:
 
 if __name__ == '__main__':
     test = RSA()
-    dado = input("Dado: ")
-    print(test.encrypt(dado))
-    print(test.pv)
-    print(''.join(
-        test.decrypt([114150791279, 109345633586, 162773109449, 35164162070, 43250113339, 43133982253, 109387188070],
-                     (612811, 279857, 46067732203))))
-"""
+    t_dado = input("Dado legível: ")
+    t_dado_criptografado = test.encrypt(t_dado)
+    print(t_dado_criptografado)
+    print(f'chave privada: {test.pv}')
+    t_dado_decodificado =''.join(test.decrypt(t_dado_criptografado, test.pv))
+    print(f'Dado decodificado: {t_dado_decodificado}')
 
-
-
-[84941406504, 1148071510]
-(579017, 189701, 13722099571)
-[1721840915746191216871, 362787738830932334885, 123637340442391470039]
-"""
