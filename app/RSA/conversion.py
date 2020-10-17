@@ -1,4 +1,6 @@
 """
+    :::Procede preCoding:::
+
 ___REGRAS GERAIS DE LÓGICA DE CRIPTOGRAFIA___
 
     1 --> Classe é definida como o conjunto de dados trabalhados, incluindo dados pre-criptografados, dados criptografados e chaves.
@@ -8,7 +10,7 @@ ___REGRAS GERAIS DE LÓGICA DE CRIPTOGRAFIA___
                 -- Uma chave correspondente pública;
                 -- Uma chave correspondente privada.
         -- Um dado correspondente pre-criptografado;
-        -- Um dado correspondente criptografado.
+        -- Um dado correspondente criptografado. (dado retorno [?])
 """
 
 
@@ -18,6 +20,7 @@ class Encrypt:
         self.pb = pb
         self.dado = dado
 
+        # Dado para retorno
         self.dadoCriptografado = self.criptografar(self.pb, self.dado)
 
 
@@ -31,6 +34,15 @@ class Encrypt:
             caractereCriptografado = pow(caractere, chave_pb[1], mod=chave_pb[0])  # c = (m, e, mod=n)
             dadoCriptografado.append(caractereCriptografado)
         return dadoCriptografado
+
+
+
+
+
+
+
+
+
 
 
 
