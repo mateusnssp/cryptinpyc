@@ -79,13 +79,13 @@ class Read:
 
 
 if __name__ == '__main__':
-    test = Read('./5a9')
+    test = Read('./748')
     print(test.dado)
     print(test.pb)
     print(test.pv)
 
 
-
+    print('. .'*30)
     print(test.dado_traduzido)
     print(test.pb_traduzido)
     print(test.pv_traduzido)
