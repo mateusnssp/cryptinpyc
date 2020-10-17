@@ -5,7 +5,7 @@ Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dad
 
 **Entenda os algoritimos abordados neste repositório na [wiki](https://github.com/mateusnssp/cryptinpyc/wiki).**
  
- <img align="center" src="./flowchart/flowchart.png" />
+ <div align="center"><img src="./flowchart/flowchart.png" /></div>
  
  
 ## Para contribuir:
