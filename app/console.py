@@ -48,12 +48,41 @@ def ajuda():
 
 
 
+
+
+
+
+
+
+
 def encrypt():
-    pass
+    print('E')
 
 
 def decrypt():
-    pass
+    print('D')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Inicialização
@@ -66,8 +95,18 @@ def init():
         if comando.upper() == 'HELP':
             ajuda()
 
-        if comando.upper() == 'EXIT' or comando.upper() == 'QUIT':
+        if comando.upper() == 'E' or comando == 'e':
+            encrypt()
+
+        if comando.upper() == 'D' or comando == 'd':
+            decrypt()
+
+        elif comando.upper() == 'EXIT' or comando.upper() == 'QUIT':
             break
+
+        else:
+            print('Comando não reconhecido')
+
 
 
 if __name__ == '__main__':
