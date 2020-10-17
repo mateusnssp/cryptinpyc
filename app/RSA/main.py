@@ -46,6 +46,18 @@ if __name__ == '__main__':
     t_dado_criptografado = test.encrypt(t_dado)
     print(t_dado_criptografado)
     print(f'chave privada: {test.pv}')
+    print(f'chave pública: {test.pb}')
     t_dado_decodificado =''.join(test.decrypt(t_dado_criptografado, test.pv))
     print(f'Dado decodificado: {t_dado_decodificado}')
+
+    test_pb = (325755551873, 78130628441)
+    test_pv = (610957, 533189, 139346978633)
+    test_dado = [94333172122, 171896840767]
+
+    test = RSA()
+    test_dado_deCodificado = test.decrypt(test_dado, test_pv)
+    print('. .'*30)
+    print(test_dado_deCodificado)
+
+
 
