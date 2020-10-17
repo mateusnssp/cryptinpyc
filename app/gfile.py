@@ -5,6 +5,11 @@ import os
 
 
 class File:
+    """
+    Recebe chave privada, chave pública e dado e os salva.
+
+    Nesta etapa, o usuário deve estar ciente que a chave privada estará segura somente se ele empregar seus próprios métodos de segurança.
+    """
     def __init__(self, pb, pv, dado, path='./', name_dir=None):
 
         self.path = path
@@ -64,6 +69,13 @@ class File:
 
         pv = f'{pv}'
         return pv
+
+
+
+
+
+
+
 
     def salvar_dado(self):
         with open(f'{self.path}/ief', 'w+') as file:
