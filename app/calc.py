@@ -1,3 +1,9 @@
+"""
+Contém funções matemáticas para facilitar os calculos
+"""
+
+
+
 import random
 
 
