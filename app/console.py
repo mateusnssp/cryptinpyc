@@ -24,22 +24,22 @@ def receber_comando(): return input('cryptinpyc >>> ')
 def receber_parametro(): return input('[] >>> ')
 
 
-# def init():
-#     data = str(datetime.today())
-#     data = data[11:27]
-#     # Definição saudação
-#     if 7 <= int(data[0:2]) < 12:
-#         cumprimento = 'Bom dia!'
-#     elif 12 <= int(data[0:2]) < 18:
-#         cumprimento = 'Boa tarde!'
-#     elif 18 <= int(data[0:2]) <= 24 or 0 <= int(data[0:2]) < 7:
-#         cumprimento = 'Boa noite!'
-#     else:
-#         cumprimento = 'Olá'
-#
-#     # Saudação
-#     space = 30
-#     print(f'{data.center(space, ".")}\n{"cryptinpyc".center(space)}\n{cumprimento.center(space)}\n{"." * space}\n')
+def init():
+    data = str(datetime.today())
+    data = data[11:27]
+    # Definição saudação
+    if 7 <= int(data[0:2]) < 12:
+        cumprimento = 'Bom dia!'
+    elif 12 <= int(data[0:2]) < 18:
+        cumprimento = 'Boa tarde!'
+    elif 18 <= int(data[0:2]) <= 24 or 0 <= int(data[0:2]) < 7:
+        cumprimento = 'Boa noite!'
+    else:
+        cumprimento = 'Olá'
+
+    # Saudação
+    space = 30
+    print(f'{data.center(space, ".")}\n{"cryptinpyc".center(space)}\n{cumprimento.center(space)}\n{"." * space}\n')
 
 
 def ajuda():
