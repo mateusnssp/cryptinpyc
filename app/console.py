@@ -78,16 +78,14 @@ def encrypt():
         if resposta.upper() == 'Y':
             print(f'DADO CRIPTOGRAFADO................: {dadoCriptografado}\nCHAVE PÚBLICA.....................: (n, e) = {pb}\nCHAVE PRIVADA.....................: (p, q, d) = {pv}')
 
-            print(":::Informe o caminho para salvar o conteúdo:::")
-            path = receber_parametro()
-
-            file =  gfile.File(pb, pv, dadoCriptografado, path)
-
-
 
         else:
             pass
-
+        
+        
+        print(":::Informe o caminho para salvar o conteúdo:::")
+        path = receber_parametro()
+        file =  gfile.File(pb, pv, dadoCriptografado, path)
 
 
 
@@ -96,17 +94,6 @@ def encrypt():
 
 def decrypt():
     print('D')
-
-
-
-
-
-
-
-
-
-
-
 
 
 
