@@ -1,7 +1,7 @@
 # Importações
 
 # Own
-from app.RSA import conversion, preCoding, gk
+from RSA import conversion, preCoding, gk
 
 """
     ATRIBUTOS:
