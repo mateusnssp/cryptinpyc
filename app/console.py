@@ -4,6 +4,8 @@ from datetime import datetime
 
 # Own
 
+import RSA.main as principal
+
 data = str(datetime.today())
 data = data[11:27]
 # Definição saudação
@@ -56,7 +58,31 @@ def ajuda():
 
 
 def encrypt():
-    print('E')
+    print(':::Informe os dados a serem criptografados ou especifique o caminho de um arquivo com "$" antes')
+    dado = receber_parametro()
+    dado = dado.lstrip()
+
+    if dado[0] == '$':
+        print("Caminho")
+
+    else:
+        e = principal.RSA()
+
+        dadoCriptografado = e.encrypt(dado)
+        pb = e.pb
+        pv = e.pv
+
+        print(":::Deseja exibir dados gerados?::: (Y/N)")
+        resposta = receber_parametro()
+        if resposta.upper() == 'Y':
+            print(f'DADO CRIPTOGRAFADO................: {dadoCriptografado}\nCHAVE PÚBLICA.....................: (n, e) = {pb}\nCHAVE PRIVADA.....................: (p, q, d) = {pv}')
+        else:
+            pass
+
+
+
+
+
 
 
 def decrypt():
@@ -95,10 +121,10 @@ def init():
         if comando.upper() == 'HELP':
             ajuda()
 
-        if comando.upper() == 'E' or comando == 'e':
+        elif comando.upper() == 'E' or comando == 'e':
             encrypt()
 
-        if comando.upper() == 'D' or comando == 'd':
+        elif comando.upper() == 'D' or comando == 'd':
             decrypt()
 
         elif comando.upper() == 'EXIT' or comando.upper() == 'QUIT':
