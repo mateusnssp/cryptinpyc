@@ -5,6 +5,7 @@ from datetime import datetime
 # Own
 
 import RSA.main as principal
+import gfile
 
 data = str(datetime.today())
 data = data[11:27]
@@ -76,6 +77,14 @@ def encrypt():
         resposta = receber_parametro()
         if resposta.upper() == 'Y':
             print(f'DADO CRIPTOGRAFADO................: {dadoCriptografado}\nCHAVE PÚBLICA.....................: (n, e) = {pb}\nCHAVE PRIVADA.....................: (p, q, d) = {pv}')
+
+            print(":::Informe o caminho para salvar o conteúdo:::")
+            path = receber_parametro()
+
+            file =  gfile.File(pb, pv, dadoCriptografado, path)
+
+
+
         else:
             pass
 
