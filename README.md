@@ -3,11 +3,43 @@
 
 Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dados ilegíveis para pessoas não autorizadas a vê-los. Uma pessoa é autorizada a ver o conteúdo criptografado se tem a chave de descriptografia em mãos.
 
+## Funcionamento
+
 **Entenda os algoritimos abordados neste repositório na [wiki](https://github.com/mateusnssp/cryptinpyc/wiki).**
+ 
  
  <div align="center"><img src="./flowchart/flowchart.png" /></div>
  
+ #### Funções por arquivos:
+|Arquivo|Função|
+|---|---|
+| [`./app/calc.py`](./app/calc.py) | Fornece funções matemáticas para geração das chaves de criptografia e para codificação |
+|[`./app/console.py`](./app/console.py)|Permitir que usuário gerencie o programa|
+|[`./app/gfile.py`](./app/gfile.py)|Cria e salva resultados gerados|
+|[`./app/readd.py`](./app/readd.py)|Lê e converte dados codificados|
+|[`./app/RSA/conversion.py`](./app/RSA/conversion.py)|Codifica e decodifica os dados|
+|[`./app/RSA/gk.py`](./app/RSA/gk.py)|Gera chaves (pública e privada)|
+|[`./app/RSA/main.py`](./app/RSA/main.py)|Faz codificação inicial e codificação final com base nas chaves geradas.|
+|[`./app/RSA/preCoding.py`](./app/RSA/preCoding.py)|Define funções de tradução unicode|
+
  
+
+## Como usar:
+ 
+Para que você possa interagir com a funcionalidade do programa, há o arquivo [console.py](./app/console.py), que pode ser executado pelo console e possui um guia de ajuda embutido. É importante que você esteja no diretório `app` para que nada inesperado ocorra.
+ ```
+$ python3 console.py
+ ```
+ Você pode criptografar dados e estes serão salvos em uma pasta nomeada aleatoriamente, contendo os arquivos: 
+ * `ief` (dados criptografados); 
+ * `pb` (chave pública);
+ * `pv` (chave privada).
+ 
+ **:warning: O arquivo `pv` deve ser retirado do diretório caso queira enviar a pasta confidencialmente para alguém, pois com a chave privada, qualquer entidade se torna capaz de quebrar o sigilo dos dados. Igualmente, deverá ser guardado com segurança, pois sem o mesmo, ninguém será capaz de decifrar os dados.**
+ 
+:warning: Este programa ainda não é apto para proteger dados contra investigações probabilísticas, não o use para coisas importantes.
+
+
 ## Para contribuir:
 
 1. Faça um fork do projeto;
