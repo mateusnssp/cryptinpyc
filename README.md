@@ -22,7 +22,7 @@ Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dad
 |[`./app/RSA/main.py`](./app/RSA/main.py)|Faz codificação inicial e codificação final com base nas chaves geradas.|
 |[`./app/RSA/preCoding.py`](./app/RSA/preCoding.py)|Define funções de tradução unicode|
 |[`./app/.glp/glp.c`](./app/.glp/glp.c) e [`./app/.glp/glp.py`](./app/.glp/glp.py)|Faz calculos para criação da lista [lp.txt](./app/.glp/lp.txt)|
-|[`./app/.glp/glp.sh`](./app/.glp/glp.sh)|É um aparato para escrever números primos encontrados em [`lp.txt`](./app/.glp/lp.txt)|
+|[`./app/.glp/glp.sh`](./app/.glp/glp.sh)|É um aparato para escrever números primos encontrados por [`./app/.glp/glp.c`](./app/.glp/glp.c) e [`./app/.glp/glp.py`](./app/.glp/glp.py) em [`lp.txt`](./app/.glp/lp.txt)|
 
  
 
