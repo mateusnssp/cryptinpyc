@@ -39,7 +39,7 @@ $ python3 console.py
  
  **:warning: O arquivo `pv` deve ser retirado do diretório caso queira enviar a pasta confidencialmente para alguém, pois com a chave privada, qualquer entidade se torna capaz de quebrar o sigilo dos dados. Igualmente, deverá ser guardado com segurança, pois sem o mesmo, ninguém será capaz de decifrar os dados.**
  
-:warning: Este programa ainda não é apto para proteger dados contra investigações probabilísticas, não o use para coisas importantes.
+:warning: Este programa ainda não é apto para proteger dados contra decodificação por probabilidade, não o use para coisas importantes.
 
 
 ## Para contribuir:
