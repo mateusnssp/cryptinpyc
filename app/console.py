@@ -6,6 +6,7 @@ from datetime import datetime
 
 import RSA.main as principal
 import gfile
+import read
 
 data = str(datetime.today())
 data = data[11:27]
@@ -59,7 +60,7 @@ def ajuda():
 
 
 def encrypt():
-    print(':::Informe os dados a serem criptografados ou especifique o caminho de um arquivo com "$" antes')
+    print(':::Informe os dados a serem criptografados:::')
     dado = receber_parametro()
     dado = dado.lstrip()
 
@@ -82,7 +83,7 @@ def encrypt():
         else:
             pass
         
-        
+
         print(":::Informe o caminho para salvar o conteúdo:::")
         path = receber_parametro()
         file =  gfile.File(pb, pv, dadoCriptografado, path)
@@ -93,9 +94,24 @@ def encrypt():
 
 
 def decrypt():
-    print('D')
+
+    print(":::informe o arquivo que pretende decodificar:::")
+    path = receber_parametro()
+
+    dadosExtraidos = read.Read(path)
+    
+    dado = dadosExtraidos.dado_traduzido
+    pv = dadosExtraidos.pv_traduzido
+  
 
 
+
+    d = principal.RSA()
+
+    dadoDecodificado = d.decrypt(dado, pv)
+
+
+    print(f"DADO DECODIFICADO.................: {''.join(dadoDecodificado)}")
 
 
 
