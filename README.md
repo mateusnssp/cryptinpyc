@@ -16,11 +16,13 @@ Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dad
 | [`./app/calc.py`](./app/calc.py) | Fornece funções matemáticas para geração das chaves de criptografia e para codificação |
 |[`./app/console.py`](./app/console.py)|Permitir que usuário gerencie o programa|
 |[`./app/gfile.py`](./app/gfile.py)|Cria e salva resultados gerados|
-|[`./app/readd.py`](./app/readd.py)|Lê e converte dados codificados|
+|[`./app/read.py`](./app/read.py)|Lê e converte dados codificados|
 |[`./app/RSA/conversion.py`](./app/RSA/conversion.py)|Codifica e decodifica os dados|
 |[`./app/RSA/gk.py`](./app/RSA/gk.py)|Gera chaves (pública e privada)|
 |[`./app/RSA/main.py`](./app/RSA/main.py)|Faz codificação inicial e codificação final com base nas chaves geradas.|
 |[`./app/RSA/preCoding.py`](./app/RSA/preCoding.py)|Define funções de tradução unicode|
+|[`./app/.glp/glp.c`](./app/.glp/glp.c) e [`./app/.glp/glp.py`](./app/.glp/glp.py)|Faz calculos para criação da lista [lp.txt](./app/.glp/lp.txt)|
+|[`./app/.glp/glp.sh`](./app/.glp/glp.sh)|É um aparato para escrever números primos encontrados em [`lp.txt`](./app/.glp/lp.txt)|
 
  
 
