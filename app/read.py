@@ -22,8 +22,11 @@ class Read:
         self.pb_traduzido = self.traduzir_pb(self.pb, self.hash_l1, self.hash_l2)
         self.pv_traduzido = self.traduzir_pv(self.pv, self.hash_l1, self.hash_l2)
 
-
-
+    # Aparato para converter string em tupla
+    @staticmethod
+    def _replace(string, tipo):
+        string = string.replace(',', '').replace(')', '').replace('(', '') if tipo == 'tuple' else string.replace(',', '').replace(']', '').replace('[', '')
+        return string
 
 
     def read_dado(self):
@@ -54,6 +57,18 @@ class Read:
                 dado = dado.replace(char, str(hash_l2[hash_l1.index(char)]))
 
         dado = f'{dado}'
+
+        str_formatada = self._replace(dado, 'list').split()
+        lista_retorno = []
+
+        for c in list(str_formatada):
+            c = int(c)
+            lista_retorno.append(c)
+
+        # Nova atribuição para dado
+        dado = list(lista_retorno)
+
+
         return dado
 
 
@@ -64,6 +79,19 @@ class Read:
                 pb = pb.replace(char, str(hash_l2[hash_l1.index(char)]))
 
         pb = f'{pb}'
+
+        str_formatada = self._replace(pb, 'tuple').split()
+        lista_retorno = []
+
+        for c in list(str_formatada):
+            c = int(c)
+            lista_retorno.append(c)
+
+        # Nova atribuição para dado
+        pb = tuple(lista_retorno)
+
+
+
         return pb
 
 
@@ -75,11 +103,25 @@ class Read:
                 pv = pv.replace(char, str(hash_l2[hash_l1.index(char)]))
 
         pv = f'{pv}'
+
+        str_formatada = self._replace(pv, 'tuple').split()
+        lista_retorno = []
+
+        for c in list(str_formatada):
+            c = int(c)
+            lista_retorno.append(c)
+
+        # Nova atribuição para dado
+        pv = tuple(lista_retorno)
+
+
+
+
         return pv
 
 
 if __name__ == '__main__':
-    test = Read('./748')
+    test = Read('./6f9')
     print(test.dado)
     print(test.pb)
     print(test.pv)
@@ -89,3 +131,6 @@ if __name__ == '__main__':
     print(test.dado_traduzido)
     print(test.pb_traduzido)
     print(test.pv_traduzido)
+    print(type(test.pv_traduzido))
+
+
