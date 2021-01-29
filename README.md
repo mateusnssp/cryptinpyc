@@ -2,11 +2,6 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 Este repositório inclui algoritimo de criptografia, cujo objetivo é tornar dados ilegíveis para pessoas não autorizadas a vê-los. Uma pessoa é autorizada a ver o conteúdo criptografado se tem a chave de descriptografia em mãos.
-
-## Funcionamento
-
-**Entenda os algoritimos abordados neste repositório na [wiki](https://github.com/mateusnssp/cryptinpyc/wiki).**
- 
  
  <div align="center"><img src="./flowchart/flowchart.png" /></div>
  
@@ -50,13 +45,3 @@ $ python3 console.py
 4. Após ter realizado suas modificações, faça um commit (`git commit -m "DESCRIÇÃO_DA_MODIFICAÇÃO"`);
 5. Faça o Push para seu repositório (`git push origin feature/NOME_DA_MODIFICAÇÃO`);
 6. No seu repositório no Github crie uma Pull Request para que seja avaliada a suas modificações para ser feito o merge no projeto principal.
-
-## Sugestões de como contribuir:
-
-Aqui está uma lista de coisas importantes para o projeto, não desconsiderando que qualquer contribuição é válida:
-
-* Procurar e reportar erros e problemas, criando uma [inssue](https://github.com/mateusnssp/cryptinpyc/issues);
-* Deixar o arquivo [`glp.c`](app/.glp/glp.c) gerar o maior número de informações para [`lp.txt`](app/.glp/lp.txt) possível;
-* Remover códigos mortos.
-
-
